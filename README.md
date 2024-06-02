@@ -1,6 +1,6 @@
 # Proyecto-tienda-remo
 
-## Guía rápida
+## Guía
 
 Es necesario tener instalado Maven como gestor de dependencias y del proyecto así como una versión de Java 17 o superior.
 
