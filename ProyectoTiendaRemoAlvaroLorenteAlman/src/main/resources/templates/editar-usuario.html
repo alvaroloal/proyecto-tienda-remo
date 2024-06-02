@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head th:replace="~{header :: title}">
+</head>
+
+<body id="top">
+    <header th:replace="header :: header"></header>
+
+    <main>
+        <article>
+            <section class="section hero" aria-label="user-details" id="user-details"
+                th:style="'background-image: url(' + @{/img/hero-banner.jpg} + ')'">
+                <div class="container">
+                    <div class="hero-content">
+                        <h2 class="h1 hero-title">
+                            <span class="span">Detalles del Usuario</span>
+                        </h2>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section user-details" id="user-details" aria-label="user-details">
+                <div class="container">
+                    <h2 class="h2 section-title">Editar usuario</h2>
+                    <br>
+                    <form th:action="@{/users/{username}/edit(username=${user.username})}" th:object="${user}" method="post">
+                        <div class="form-group">
+                            <label for="username"><span>Nombre de usuario</span></label>
+                            <input type="text" id="username" name="username" th:field="*{username}" readonly="readonly" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password"><span>Contraseña</span></label>
+                            <input type="text" id="password" name="password" th:field="*{password}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName"><span>Primer apellido</span></label>
+                            <input type="text" id="firstName" name="firstName" th:field="*{address.firstName}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName"><span>Segundo apellido</span></label>
+                            <input type="text" id="lastName" name="lastName" th:field="*{address.lastName}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><span>Correo electrónico</span></label>
+                            <input type="email" id="email" name="email" th:field="*{address.email}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="street"><span>Calle</span></label>
+                            <input type="text" id="street" name="street" th:field="*{address.street}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="city"><span>Ciudad</span></label>
+                            <input type="text" id="city" name="city" th:field="*{address.city}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="zipCode"><span>Código postal</span></label>
+                            <input type="text" id="zipCode" name="zipCode" th:field="*{address.zipCode}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="country"><span>País</span></label>
+                            <input type="text" id="country" name="country" th:field="*{address.country}" class="form-control"/>
+                        </div>
+                        <div class="button-container">
+                            <button type="submit" class="btn-outline">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer th:replace="footer :: footer"></footer>
+
+    <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
+        <ion-icon name="chevron-up"></ion-icon>
+    </a>
+    <script src="./js/script.js" defer></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
