@@ -6,8 +6,8 @@ Es necesario tener instalado Maven como gestor de dependencias y del proyecto as
 
 1. Clona el proyecto en local
     ```bash
-    git clone https://github.com/alvaroLorente1/Proyecto-paquetes.git
-    ```  
+    git clone https://github.com/alvaroLorente1/Proyecto-tienda-remo.git
+    ```
 
 ## Motivación
 Se desea implementar una aplicación que gestione el envío y seguimiento de paquetes en una empresa de transporte, se llevará el control de los envíos de paquetería.
