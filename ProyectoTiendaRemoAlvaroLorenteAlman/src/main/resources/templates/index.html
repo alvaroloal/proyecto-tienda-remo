@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Tienda REMO</title>
+	<title>Tienda TodoRemo</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -14,15 +14,18 @@
 		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
 		crossorigin="anonymous"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-
-	<div class="p-5 bg-danger text-white text-center">
-		<h1>TodoRemo</h1>
+	
+	<div class="p-5 bg-danger text-white text-center" >
+		
+		
+		<h1 class="ms-3">TodoRemo</h1>
+		
 	</div>
-	<nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="javascript:void(0)"></a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -31,32 +34,27 @@
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="#noticias">Noticias</a>
+						<a class="nav-link fs-2" href="#productos">Productos</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#federacion">Federación</a>
+						<a class="nav-link fs-2" href="#componentes">Componentes</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#competiciones">Competiciones</a>
+						<a class="nav-link fs-2" href="#botes">Barcos</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#catalogo">Catálogo</a>
+						<a class="nav-link fs-2" href="#ropa">Ropa deportiva</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#botes">Barcos</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#ropa">Ropa deportiva</a>
-					</li>
-					<li class="nav-item">
-						<button type="button" class="btn btn-danger">
-							Ser cliente
+						<button type="button" class="btn btn-danger fs-2 me-3">
+							Registrar cliente
 						</button>
 					</li>
 					<li class="nav-item">
-						<button type="button" class="btn btn-danger">
+						<button type="button" class="btn btn-danger fs-2">
 							Iniciar como admin
 						</button>
+						
 					</li>
 				</ul>
 			</div>
@@ -100,7 +98,7 @@
 			<div class="col-sm-4">
 				<h1>¿Quienes somos?</h1>
 				<div class="img1"><img th:src="@{/img/dos.jpg}" width="300px"></div><br>
-				<p>Somos dos remeros del Real Círculo de Labradores de Sevilla que hemos decidido emprender en un
+				<p class="fs-2">Somos dos remeros del Real Círculo de Labradores de Sevilla que hemos decidido emprender en un
 					negocio de productos de remo.</p>
 				<hr class="d-sm-none">
 			</div>
@@ -113,96 +111,12 @@
 
 
 
-	<div id="noticias" class="container mt-5">
+	<div id="productos" class="container mt-5">
 		<div class="row">
-			<h1 class="mt-4 mb-5">Noticias</h1>
-			<p>Desde hace ya bastante tiempo, el Real Círculo de Labradores ha apostado por el deporte como una parte
-				importante de su organización. En este contexto, una de las secciones a destacar es la de Remo, tanto
-				por su
-				historia como por los resultados obtenidos, tanto a nivel nacional como internacional.
-				A lo largo de los años han pasado por esta sección deportistas que han conseguido éxitos importantes con
-				8
-				medallas en campeonatos del mundo, deportistas olímpicos, numerosos deportistas componentes de la
-				selección
-				nacional en competiciones internacionales y una innumerable cantidad de deportistas que todos los años
-				participan (la mayoría alcanzando títulos) en los campeonatos nacionales, que son parte importante de
-				nuestra
-				sección.</p>
-			<p>Era muy complicado estar a la altura de Racice (Croacia), donde, el año pasado, la delegación consiguió
-				un
-				resultado histórico para el remo español, con dos platas. En Belgrado (Serbia), este domingo, España
-				cerró los
-				Mundiales de 2023 sin subir al podio, pero con un buen impulso hacia los Juegos de París, el gran
-				objetivo. En
-				total, la cosecha ha sido de cuatro plazas olímpicas. La primera la lograron Dennis Carracedo y Caetano
-				Horta,
-				doble scull ligero, el jueves. Tras ella, llegó la de Rodrigo Conde y Aleix García (doble scull),
-				subcampeones
-				el año pasado, que terminaron quintos en la final de este domingo. Finalmente, también se apuntaron a la
-				cita
-				francesa los dos sin timonel masculino (Javier García y Jaime Canalejo), también plata en Racice, y
-				femenino
-				(Aina Cid y Esther Briz).</p>
+			<h1 class="mt-4 mb-5">Productos que ofrecemos</h1>
 		</div>
 	</div>
-
-	<div id="federacion" class="container mt-5">
-		<div class="row">
-			<h1 class="mt-4 mb-5">Federación española de remo</h1>
-			<p>El próximo domingo 17 de marzo, organizado por la Federación Española de Remo, se concederán los Premios
-				del
-				Remo 2023 a la labor, dedicación, resultados y logros de personas e instituciones vinculadas al remo
-				nacional.
-				Tras el estudio de las propuestas por parte del Jugarado, recibidas en tiempo y forma, éste ha resuelto
-				un total
-				de 14 premios y 3 menciones especiales.</p>
-			<p>Los días 23 y 24 de febrero se ha celebrado el Campeonato del Mundo y de Europa de Remo Indoor, presented
-				by
-				Concept2. En el evento, que se podía participar tanto en modo presencial (Praga) como en modo online,
-				han
-				participado un total de veinte remeros españoles, logrando hasta once medallas, cuatro de ellas oros.
-
-				Desde Praga, el mallorquín Germán Rendo hacía doblete consiguiendo el oro en los 2000 metros y en los
-				500 metros
-				(LM 55-59), como ya hizo en la edición del año pasado. Invicto sigue Jesús González, quien retuvo su oro
-				mundial
-				en la categoría (LM 45-49), y Juan Zunzunegui la plata. Otra plata sumó Carlos Rodríguez (LM 50-54).
-				También el
-				medallista en pasadas ediciones, Damián Alonso, se colgaba el bronce en los 2000 y 500 metros. Oro
-				también fue
-				Justo Pérez y bronce Jaume Llorens, en categoría 65-69, pesado y ligero, respectivamente.
-
-				Francisco Jose Pizana (LM 23-39) fue plata en la distancia corta y Alberto Fernández , cuarto en los
-				2000
-				metros, fue bronce en los 500 metros (M 40-44). La representación femenina la puso Ainhoa Saizar
-				Liceaga, decimo
-				octava en los 2000 metros en categoría LW 23-39.</p>
-		</div>
-
-		<div class="row">
-			<div class="col-md-4 mb-4">
-				<div class="card h-100">
-					<img th:src="@{/img/2xesp.jpg}" class="card-img-top" alt="imagen">
-				</div>
-			</div>
-
-			<div class="col-md-4 mb-4">
-				<div class="card h-100">
-					<img th:src="@{/img/4-esp.jpg}" class="card-img-top" alt="imagen">
-				</div>
-			</div>
-
-			<div class="col-md-4 mb-4">
-				<div class="card h-100">
-					<img th:src="@{/img/2-esp.jpg}" class="card-img-top" alt="imagen">
-				</div>
-			</div>
-		</div>
-
-	</div>
-
-
-	<div id="competiciones" class="container">
+	<!--<div id="competiciones" class="container">
 		<h1 class="mt-4 mb-5">Calendario de competiciones</h1>
 		<table class="table table-striped">
 			<thead>
@@ -262,9 +176,9 @@
 				</tr>
 			</tbody>
 		</table>
-	</div>
+	</div>	-->
 
-	<div class="container mt-5">
+	<!-- <div class="container mt-5">
 		<h2 class="mb-4">Medallero de Remo - Juegos Olímpicos</h2>
 		<table class="table">
 			<thead>
@@ -314,19 +228,16 @@
 				</tr>
 			</tbody>
 		</table>
-	</div>
-
-
-
-	<div id="catalogo" class="container mt-5">
+	</div>	-->
+	<div id="componentes" class="container mt-5">
 		<h1 class="my-5">Componentes</h1>
 		<div class="row">
 			<div class="col-md-4 mb-4">
 				<div class="card h-100">
 					<img th:src="@{/img/empacher3.jpg}" class="card-img-top" alt="imagen">
 					<div class="card-body">
-						<h5 class="card-title">Orza y timón del bote</h5>
-						<p class="card-text">Esta parte del barco sirve para controlar la dirección.</p>
+						<h5 class="card-title fs-1">Orza y timón del bote</h5>
+						<p class="card-text fs-3">Esta parte del barco sirve para controlar la dirección.</p>
 						<a href="#" class="btn btn-primary">Ver más</a>
 					</div>
 				</div>
@@ -336,8 +247,8 @@
 				<div class="card h-100">
 					<img th:src="@{/img/empacher2.jpg}" class="card-img-top" alt="imagen">
 					<div class="card-body">
-						<h5 class="card-title">Carro y vías</h5>
-						<p class="card-text">En el carro es donde nos sentamos y este va sobre unas vías para su
+						<h5 class="card-title fs-1">Carro y vías</h5>
+						<p class="card-text fs-3">En el carro es donde nos sentamos y este va sobre unas vías para su
 							correcto
 							funcionamiento.</p>
 						<a href="#" class="btn btn-primary">Ver más</a>
@@ -349,8 +260,8 @@
 				<div class="card h-100">
 					<img th:src="@{/img/empacher1.jpg}" class="card-img-top" alt="imagen">
 					<div class="card-body">
-						<h5 class="card-title">Casco y cortaolas</h5>
-						<p class="card-text">Es la estructura del bote y proporciona estabilidad.</p>
+						<h5 class="card-title fs-1">Casco y cortaolas</h5>
+						<p class="card-text fs-3">Es la estructura del bote y proporciona estabilidad.</p>
 						<a href="#" class="btn btn-primary">Ver más</a>
 					</div>
 				</div>
@@ -366,10 +277,8 @@
 				<div class="card h-100">
 					<img th:src="@{/img/1x.jpg}" class="card-img-top" alt="imagen">
 					<div class="card-body">
-						<h5 class="card-title">1xABSM Nueva Zelanda</h5>
-						<p class="card-text">Mahe Drysdale ha dominado la categoria del skiff en los ultimos años.
-							Proclamandose
-							campeón en los Juegos de Beijin 2008, Londres 2012 y Rio de Janeiro 2016</p>
+						<h5 class="card-title fs-1">1x Skiff</h5>
+						
 					</div>
 				</div>
 			</div>
@@ -378,10 +287,7 @@
 				<div class="card h-100">
 					<img th:src="@{/img/2x.jpg}" class="card-img-top" alt="imagen">
 					<div class="card-body">
-						<h5 class="card-title">2xABSM Croacia</h5>
-						<p class="card-text">Los hermanos Valent y Martin Sinkovic han dominado la prueba del 2x desde
-							los juegos de
-							Beijin 2008.</p>
+						<h5 class="card-title fs-1">2x Doble scull</h5>
 					</div>
 				</div>
 			</div>
@@ -390,10 +296,7 @@
 				<div class="card h-100">
 					<img th:src="@{/img/2-.jpg}" class="card-img-top" alt="imagen">
 					<div class="card-body">
-						<h5 class="card-title">2-ABSM Nueva Zelanda</h5>
-						<p class="card-text">Amish Bond y Eric Murray se han proclamado 8 veces campeones del mundo en
-							la modalidad
-							2-ABSM, campeónes en los Juegos de Beijin 2008, Londres 2012 y Rio de Janeiro 2016 </p>
+						<h5 class="card-title fs-1">2- Dos sin timonel</h5>
 					</div>
 				</div>
 			</div>
@@ -401,9 +304,7 @@
 				<div class="card h-100">
 					<img th:src="@{/img/4-.jpg}" class="card-img-top" alt="imagen">
 					<div class="card-body">
-						<h5 class="card-title">4- ABSM Gran Bretaña</h5>
-						<p class="card-text">El 4-ABSM tiene un claro dominante en los ultimos años y es Gran Bretaña
-							con </p>
+						<h5 class="card-title fs-1">4- Cuatro sin timonel</h5>
 					</div>
 				</div>
 			</div>
@@ -411,10 +312,8 @@
 				<div class="card h-100">
 					<img th:src="@{/img/rfxzzwzbvheu68g4xyhs.webp}" class="card-img-top" alt="imagen">
 					<div class="card-body">
-						<h5 class="card-title">8+ABSM Alemania</h5>
-						<p class="card-text">El 8+ABSM alemán es el dominante en los ultimos años. Se ha proclamado
-							campeón del
-							mundo en 5 ocasiones.</p>
+						<h5 class="card-title fs-1">8+ Ocho con timonel</h5>
+						
 					</div>
 
 				</div>
@@ -423,10 +322,7 @@
 				<div class="card h-100">
 					<img th:src="@{/img/4X.jpg}" class="card-img-top" alt="imagen">
 					<div class="card-body">
-						<h5 class="card-title">4xABSM Suiza</h5>
-						<p class="card-text">Los remeros suizos llevan mas de 3 ciclos olímpicos obteniendo medallas en
-							campeonatos
-							del mundo y de Europa</p>
+						<h5 class="card-title fs-1">4x Cuatro scull</h5>
 					</div>
 				</div>
 			</div>
@@ -438,9 +334,9 @@
 		<div class="row">
 			<div class="col-md-4 mb-4">
 				<div class="card h-100">
-					<img th:src="@{/img/termica.jpg}" class="card-img-top" alt="imagen">
+					<img th:src="@{/img/termica.png}" class="card-img-top" alt="imagen">
 					<div class="card-body">
-						<h5 class="card-title">Camiseta térmica</h5>
+						<h5 class="card-title fs-1">Camiseta térmica</h5>
 						<p class="card-text"></p>
 					</div>
 				</div>
@@ -450,7 +346,7 @@
 				<div class="card h-100">
 					<img th:src="@{/img/platanito.jpg}" class="card-img-top" alt="imagen">
 					<div class="card-body">
-						<h5 class="card-title">Platanito</h5>
+						<h5 class="card-title fs-1">Platanito</h5>
 						<p class="card-text"></p>
 					</div>
 				</div>
@@ -460,7 +356,7 @@
 				<div class="card h-100">
 					<img th:src="@{/img/mallas.jpg}" class="card-img-top" alt="imagen">
 					<div class="card-body">
-						<h5 class="card-title">Mallas</h5>
+						<h5 class="card-title fs-1">Mallas</h5>
 						<p class="card-text"></p>
 					</div>
 				</div>
@@ -481,16 +377,16 @@
 				<label for="email" class="form-label">Correo Electrónico</label>
 				<input type="email" class="form-control" id="email" placeholder="">
 			</div>
-
 			<div class="mb-3">
-				<label for="deporte" class="form-label">Deporte Favorito</label>
-				<select class="form-select" id="deporte">
-					<option value="remol">Remo</option>
-					<option value="futbol">Fútbol</option>
-					<option value="baloncesto">Baloncesto</option>
-					<option value="tenis">Tenis</option>
-					<option value="natacion">Natación</option>
-					<option value="otro">Otro</option>
+							<label for="telefono" class="form-label">Número de teléfono</label>
+							<input type="tel" class="form-control" id="telefono">
+			</div>
+			<div class="mb-3">
+				<label for="producto" class="form-label">Producto preferido</label>
+				<select class="form-select" id="producto">
+					<option value="componentes">Componentes</option>
+					<option value="futbol">Barcos</option>
+					<option value="baloncesto">Ropa</option>
 				</select>
 			</div>
 			<div class="mb-3">
@@ -500,18 +396,7 @@
 			</div>
 
 			<div class="mb-3">
-				<legend class="form-label">¿Practicas deporte regularmente?</legend>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="practica_deporte" id="si">
-					<label class="form-check-label" for="si">Sí</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="practica_deporte" id="no">
-					<label class="form-check-label" for="no">No</label>
-				</div>
-			</div>
-			<div class="mb-3">
-				<legend class="form-label">¿Has practicado deporte de alto nivel?</legend>
+				<legend class="form-label">¿Conocías nuestra tienda?</legend>
 				<div class="form-check">
 					<input class="form-check-input" type="radio" name="practica_deporte" id="si">
 					<label class="form-check-label" for="si">Sí</label>
@@ -533,71 +418,30 @@
 				</div>
 			</div>
 			<div class="mb-3">
-				<legend class="form-label">Selecciona los deportes que te interesen</legend>
+				<legend class="form-label">Selecciona el tipo de productos que deberiamos añadir</legend>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="remo" id="interes_futbol">
-					<label class="form-check-label" for="interes_remo">Remo</label>
+					<input class="form-check-input" type="checkbox" value="camisetas" id="interes_camisetas">
+					<label class="form-check-label" for="interes_camisetas">Camisetas</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="futbol" id="interes_futbol">
-					<label class="form-check-label" for="interes_futbol">Fútbol</label>
+					<input class="form-check-input" type="checkbox" value="calzonas" id="interes_calzonas">
+					<label class="form-check-label" for="interes_calzonas">Calzonas</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="baloncesto" id="interes_baloncesto">
-					<label class="form-check-label" for="interes_baloncesto">Baloncesto</label>
+					<input class="form-check-input" type="checkbox" value="accesorios" id="interes_baloncesto">
+					<label class="form-check-label" for="interes_baloncesto">Accesorios</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="tenis" id="interes_tenis">
-					<label class="form-check-label" for="interes_tenis">Tenis</label>
+					<input class="form-check-input" type="checkbox" value="suplementacion" id="interes_suplementacion">
+					<label class="form-check-label" for="interes_suplementacion">Suplementación deportiva</label>
 				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="natacion" id="interes_natacion">
-					<label class="form-check-label" for="interes_natacion">Natación</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="piraguismo" id="interes_natacion">
-					<label class="form-check-label" for="interes_piraguismo">Piraguismo</label>
-				</div>
-			</div>
-
-			<div class="mb-3">
-				<label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
-				<input type="date" class="form-control" id="fecha_nacimiento">
-			</div>
-
-			<div class="mb-3">
-				<label for="telefono" class="form-label">Núemro teléfono</label>
-				<input type="tel" class="form-control" id="telefono">
 			</div>
 			<button type="submit" class="btn btn-primary">Enviar</button>
 		</form>
 
 	</div>
 
-	<div class="container mt-5">
-		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-			Modal
-		</button>
-		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Seccion Remo</h5>
-						<img class="modal-content" th:src="@{/img/labra.png}" alt="">
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						Esta web es para dar a conocer un poco más este deporte
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-						<button type="button" class="btn btn-primary">Guardar</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
+	
 	<div class="container mt-5">
 		<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
 			aria-controls="offcanvasExample">Menú lateral</button>
@@ -611,38 +455,37 @@
 			</div>
 			<div class="offcanvas-body">
 				<ul class="list-unstyled">
-					<li><a href="#noticias">Noticias</a></li>
-					<li><a href="#federacion">Federación</a></li>
-					<li><a href="#competiciones">Competiciones</a></li>
-					<li><a href="#galeria">Galería</a></li>
-					<li><a href="#catalogo">Catálogo</a></li>
+					<li><a href="#productos">Productos</a></li>
+					<li><a href="#componentes">Componentes</a></li>
 					<li><a href="#botes">Barcos</a></li>
+					<li><a href="#ropa">Ropa deportiva</a></li>
 				</ul>
 			</div>
 		</div>
 	</div><br><br>
 	<div class="container">
-		<footer class="bg-dark text-light py-4">
+		<footer class="bg-secondary text-light py-4">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4">
-						<p>Calle Monte Carmelo<br>
-							Sevilla, España<br>
-							Teléfono: +123456789</p>
-					</div>
-					<div class="col-md-4">
 						<ul class="list-unstyled">
-							<li><a href="#" class="text-light"><i class="fab fa-facebook"></i> Facebook</a></li>
-							<li><a href="#" class="text-light"><i class="fab fa-twitter"></i> Twitter</a></li>
-							<li><a href="#" class="text-light"><i class="fab fa-instagram"></i> Instagram</a></li>
+							<li><a href="#" class="text-light fs-2">Alvaro Lorente Almán</a></li>
+							<li><a href="mailto:lorente.alalv24@salesianos.triana.edu@ejemplo.com"class="text-light fs-2" >Contáctame</a></li>
 						</ul>
 					</div>
 					<div class="col-md-4">
 						<ul class="list-unstyled">
-							<li><a href="#noticias" class="text-light">Noticias</a></li>
-							<li><a href="#galeria" class="text-light">Galeria</a></li>
-							<li><a href="#competiciones" class="text-light">Competiciones</a></li>
-							<li><a href="index.html" class="text-light">Inicio</a></li>
+							<li><a href="https://www.facebook.com/" class="text-light fs-2"><i class="fab fa-facebook"></i> Facebook</a></li>
+							<li><a href="https://x.com/" class="text-light fs-2"><i class="fab fa-twitter"></i> Twitter</a></li>
+							<li><a href="https://www.instagram.com/" class="text-light fs-2"><i class="fab fa-instagram"></i> Instagram</a></li>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						<ul class="list-unstyled">
+							<li><a href="#productos" class="text-light fs-2">Productos</a></li>
+							<li><a href="#componentes" class="text-light fs-2">Componentes</a></li>
+							<li><a href="#botes" class="text-light fs-2">Barcos</a></li>
+							<li><a href="" class="text-light fs-2">Inicio</a></li>
 						</ul>
 					</div>
 				</div>

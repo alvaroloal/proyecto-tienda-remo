@@ -1,8 +1,18 @@
+
+body {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: large;
+}
+
+.image-container img {
+            height: 5px; /* Ajusta el tamaño de la imagen según tus necesidades */
+            width: 5px;
+        }
+        
 .carousel-item img {
 	max-height: 500px;
 	margin: auto;
 }
 
-body {
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-}
+
+
