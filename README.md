@@ -10,7 +10,7 @@ Es necesario tener instalado Maven como gestor de dependencias y del proyecto as
     ```
 
 ## Motivación
-Se desea implementar una aplicación que gestione el envío y seguimiento de paquetes en una empresa de transporte, se llevará el control de los envíos de paquetería.
+
 
 ## Funcionamiento
 Un usuario accede a la aplicación y puede elegir entre hacer un envío o realizar el seguimiento de un envío ya realizado.  
@@ -23,7 +23,7 @@ Además, el administrador tendrá un panel de control para poder realizar operac
 Por último, el administrador desde el panel podrá generar un reporte del estado actual de la empresa en el que se detallen el número de envíos gestionados, la puntuación media del servicio y los ingresos totales en el sistema.
 
 ## Arquitectura
-Para implementar la aplicación, se ha decidido dividir las funcionalidades en los siguientes servicios: usuarios, envíos, reportes, comentarios y facturas.
+Para implementar la aplicación, se ha decidido dividir las funcionalidades en los siguientes servicios:
 
 ![diagrama del proyecto](diagrama/diagrama-clases.png)
 
