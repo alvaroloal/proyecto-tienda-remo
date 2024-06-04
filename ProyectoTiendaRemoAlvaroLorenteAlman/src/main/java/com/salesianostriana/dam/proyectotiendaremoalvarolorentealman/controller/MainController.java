@@ -49,7 +49,6 @@ public class MainController {
 	}
 	
 	
-	
 	@GetMapping("/product/{id}")
 	public String showDetails(@PathVariable("id") Long id, Model model) {
 		

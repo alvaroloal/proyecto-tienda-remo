@@ -8,44 +8,39 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity @Data @NoArgsConstructor @AllArgsConstructor
+@Entity
+@Data
+@NoArgsConstructor
+@Table(name="productos")
 public class Producto {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String nombre;
-	
-	/*
-	 * JPA nos permite mediante la anotación @Lob 
-	 * mapear con la base de datos objetos pesados, 
-	 * como podría ser imágenes, xml, binarios, cadenas de texto extensas, 
-	 * json, etc. 
-	 * Cualquier objeto que pueda tener un tamaño muy grande 
-	 * o de longitud indefinida.
-	 * En este caso quizá no haría falta ponerlo a la descrpción pero
-	 * puede que haya algunas con muchos caracteres.
-	 * */
 	
 	@Lob 
 	private String descripcion;
 	
 	private float pvp;
-	
 	private float descuento;
-	
 	private String imagen;
+	
+	@ManyToOne
+	private Usuario usuario;
 	
 	@ManyToOne
 	private Categoria categoria;
@@ -60,27 +55,19 @@ public class Producto {
 		this.descuento = descuento;
 		this.imagen = imagen;
 		this.categoria = categoria;
+		this.usuario=usuario;
 	}
-
 	
-	/**
-	 * Métodos helper, aunque en este caso no se gestionan las puntuaciones
-	 */
+	
+	
+
+	/*metodos helper*/
 	public void addPuntuacion(Puntuacion puntuacion) {
 		this.puntuaciones.add(puntuacion);
 		puntuacion.setProducto(this);
 	}
 	
-	/**
-	 * Para calcular la media de puntuación. 
-	 * Comprobamos que no sea cero
-	 * Se utiliza Stream en el que:
-	 * this.puntuaciones.stream()	Sacamos un stream con las puntuaciones
-	 * .mapToInt(Puntuacion::getPuntuacion)	Creamos un Stream de enteros, es 
-	 * lo que devuelve mapToInt, con el valor "puntuación" de cada elemento
-	 * .average()	Calcula la media
-	 * .getAsDouble();		Pasamos el resultado a double para ver la media con decimales
-	 * */
+	
 	
 	public double getPuntuacionMedia() {
 		if (this.puntuaciones.isEmpty())
@@ -94,6 +81,23 @@ public class Producto {
 	
 	public double getNumeroTotalPuntuaciones() {
 		return this.puntuaciones.size();
+	}
+
+
+
+
+	public Producto(Long id, String nombre, String descripcion, float pvp, float descuento, String imagen,
+			Usuario usuario, Categoria categoria, Set<Puntuacion> puntuaciones) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.pvp = pvp;
+		this.descuento = descuento;
+		this.imagen = imagen;
+		this.usuario = usuario;
+		this.categoria = categoria;
+		this.puntuaciones = puntuaciones;
 	}
 	
 

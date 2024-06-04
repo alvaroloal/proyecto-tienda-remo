@@ -1,35 +1,37 @@
 package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model;
 
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Getter
-@Setter
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
-@DiscriminatorValue("CLIENTE")
+
 @Entity
-@Data
-//@NoArgsConstructor
-public class Cliente extends Usuario {
-
+@Table(name="clientes")
+public class Cliente{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
 	private String telefono;
 	private String direccion;
 	private String numeroTarjeta;
 	private String email;
+	
+	public Cliente() {
+		
+	}
 
-	public Cliente(String nombreCompleto, String nombreUsuario, String contrasenia) {
-		super(nombreCompleto, nombreUsuario, contrasenia);
+	public Cliente(Long id, String telefono, String direccion, String numeroTarjeta, String email) {
+		super();
+		this.id = id;
 		this.telefono = telefono;
 		this.direccion = direccion;
 		this.numeroTarjeta = numeroTarjeta;
 		this.email = email;
 	}
+	
+	
 
 }
