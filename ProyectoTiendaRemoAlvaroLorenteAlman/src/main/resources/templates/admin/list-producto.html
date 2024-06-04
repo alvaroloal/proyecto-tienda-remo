@@ -6,16 +6,33 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>Lista Productos</title>
+	<title></title>
 
 
 	<!-- Bootstrap -->
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<link href="../../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<style>
+		body {
+			margin-top: 20px;
+		}
+	</style>
 
 </head>
 
 <body>
+
+<!-- 
+	Todo lo relacionado con plantilla mostrar está explicado en ejemplos anteriores de listado o en la 
+	plantilla html list-categoria de este proyecto 
+-->
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
@@ -27,16 +44,6 @@
 				</button>
 				<a class="navbar-brand" href="/">triana.salesianos.edu Shop</a>
 			</div>
-
-<!-- 
-	Igual que en el caso de categorías, ponemos los th:href además 
-	de los href sin th para cuando se deba procesar la plantilla y 
-	escribimos la ruta que hemos puesto en el correspondiente
-	controlador, ProductoController o CategoriaController.
-	
-	No se gestiona ni la edición ni agregar, solo mostrar productos y categorías
--->
-
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -44,7 +51,8 @@
 						<ul class="dropdown-menu">
 							<li><a href="/admin/categoria/" th:href="@{/admin/categoria/}">Gestión de categorías</a>
 							</li>
-							<li><a href="/admin/producto/" th:href="@{/admin/producto/}">Gestión de productos</a></li>
+							<li><a href="/admin/producto/" th:href="@{/admin/producto/}">Gestión
+									de productos</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -57,7 +65,8 @@
 		<div class="row">
 			<div class="col-md-offset-1 col-md-10">
 				<div class="pull-right">
-					<a href="form-producto.html" class="btn btn-primary">Nuevo producto</a>
+					<a href="form-producto.html" th:href="@{/admin/producto/nuevo}" class="btn btn-primary">Nuevo
+						producto</a>
 
 				</div>
 
@@ -71,32 +80,17 @@
 						</tr>
 					</thead>
 					<tbody>
-
-<!-- 
-	Se explica también en la parte de Categorías. En este caso:
-	
-	Pintamos el cuerpo de la tabla mediante un bucle th:each, 
-	iremos recorriendo la lista productos 
-	(así hay que llamarle en el método index del Productocontroller 
-	model.addAttribute("productos", productoService.findAll());
-	
-	Para cada producto, pintamos la imagen (se explica en ejemplos de sintaxis básica) 
-	o una por defecto si el producto concreto no tiene imagen, 
-	el nombre del producto y el pvp usando la forma de formatear que
-	se explica en ejemplos anteriores (basta con escribir #numbers y llamar al método
-	formatCurrency que significa algo así como formatear en moneda/divisa.
-	
-	En este caso, editar y borrar no hacen nada, se verá en otro ejemplo.
- -->
 						<tr th:each="producto : ${productos}">
 							<td><img th:src="${not (#strings.isEmpty(producto.imagen))} 
-								              ? ${producto.imagen} : 'https://llerena.org/wp-content/uploads/2017/11/imagen-no-disponible.jpg'" class="img-responsive icono-categoria"
+								              ? ${producto.imagen} : 'http://placehold.it/48x48'" class="img-responsive icono-categoria"
 									alt="imagen" /></td>
 							<td th:text="${producto.nombre}"></td>
 							<td th:text="${#numbers.formatCurrency(producto.pvp)}"></td>
-							<td class="operaciones"><a href="#" class="btn btn-primary">Editar</a>
+							<td class="operaciones"><a href="#"
+									th:href="@{/admin/producto/editar/{id}(id=${producto.id})}"
+									class="btn btn-primary">Editar</a>
 								<button type="button" class="btn btn-danger" data-toggle="modal"
-									data-target="#delete-modal">Borrar</button>
+									data-target="#delete-modal" th:data-id="${producto.id}">Borrar</button>
 							</td>
 						</tr>
 					</tbody>
@@ -117,7 +111,7 @@
 				<div class="modal-body">
 					<p>¿Está usted seguro de borrar este producto?</p>
 					<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-					<a href="#" class="btn btn-danger">Sí</a>
+					<a href="/admin/producto/borrar/" class="btn btn-danger">Sí</a>
 				</div>
 			</div>
 
@@ -128,6 +122,11 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script src="../../static/js/app.js" th:src="@{/js/app.js}"></script>
+
+
+
 
 </body>
 

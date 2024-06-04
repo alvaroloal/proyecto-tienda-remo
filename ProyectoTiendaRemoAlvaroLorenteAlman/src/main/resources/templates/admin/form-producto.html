@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title></title>
+
+<!-- Bootstrap -->
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	 rel="stylesheet">
+<link href="../../static/css/style.css" th:href="@{/css/style.css} "rel="stylesheet" />
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">triana.salesianos.edu Shop</a>
+			</div>
+			
+<!-- 
+	De nuevo una lista <ul> con dos elementos <li> de opciones que sale a la derecha de nuestra barra. 
+	Como siempre debemos incluir los href y los th:ref. 
+
+	Las rutas deben ser las de los controladores correspondientes a lo que se quiere hacer al pinchar en cada una de las opciones.
+	Por ejemplo,  <a href="/admin/producto/" th:href="@{/admin/producto/}"> que nos lleva 
+	a la clase ProductoController y, en concreto, al método index que es quien atiende a /admin/producto/ (con la barra al final)
+-->
+
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">Opciones <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="/admin/categoria/"
+								th:href="@{/admin/categoria/}">Gestión de categorías</a></li>
+							<li><a href="/admin/producto/" th:href="@{/admin/producto/}">Gestión
+									de productos</a></li>
+						</ul></li>
+				</ul>
+			</div>
+
+		</div>
+	</nav>
+	
+<!-- 
+	Formulario de producto: Como se explica en categoría hace falta:
+	
+	* method="post" 
+	* th:action="@{/admin/producto/nuevo/submit}" Ruta al método del controlador que esté anotado
+	con PostMapping de la clase ProductoController, en este caso, el método
+	
+		@PostMapping("/nuevo/submit")
+		public String submitNuevoProducto(Producto producto, Model model)
+		
+	De nuevo debemos tener en cuenta que encima de este método solo aparace parte de la ruta porque hemos 
+	anotado la clase entera con @RequestMapping("/admin/producto") que es la que nos hace "ahorrar" tener que poner
+	toda la parte común de la ruta en cada método, si te fijas, la suma de la ruta del @RequestParam y la 
+	del @PostMapping es la que está escrita en el th=action
+	
+	*th:object="${producto}" es el command object con el que trabajamo en el formulario, es decir, 
+	algo así como el objeto que se "formará" al recoger los campos del formulario. De nuevo, en este caso sencillo, 
+	coincide con una de nuestras entidades Producto.
+	
+	El único campo nuevo en este caso es el select que se explica más abajo
+
+ -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+				<form method="post" action="#"
+					th:action="@{/admin/producto/nuevo/submit}" th:object="${producto}">
+					<h1>
+						<span th:text="${producto.id} ? 'Editar' : 'Nuevo'"></span>
+						producto
+					</h1>
+					<input type="hidden" th:field="*{id}" id="id" />
+					<div class="form-group">
+						<label for="nombre">Nombre</label> <input type="text"
+							class="form-control" id="nombre" placeholder="Nombre"
+							th:field="*{nombre}" />
+					</div>
+					<div class="form-group">
+						<label for="imagen">URL de la imagen</label> <input type="url"
+							class="form-control" id="imagen" placeholder="http://..."
+							th:field="*{imagen}">
+					</div>
+					<div class="form-group">
+						<label for="descripcion">Descripción</label>
+						<textarea class="form-control" id="descripcion"
+							placeholder="Descripción" rows="3" th:field="*{descripcion}"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="pvp">PVP</label> <input type="number"
+							class="form-control" id="pvp" placeholder="1.0" th:field="*{pvp}" />
+
+					</div>
+					<div class="form-group">
+						<label for="descuento">Descuento</label> <input type="number"
+							min="0" max="1" step="0.01" class="form-control" id="descuento"
+							placeholder="0.0" th:field="*{descuento}" />
+					</div>
+					
+<!-- Campo select:
+
+	* Damos el campo que iremos mostrando, en este caso th:field="*{categoria}"
+	* Los distintos option (opciones del select) que se mostrarán mediante un bucle each.
+	Se ha añadido un option más al comienzo para que se muestren 3 guiones --- en caso de que no haya ninguna (value="-1").
+	
+	El bucle recorre la lista de categorías y de cada una que va sacando, tendremos el id para "cogerlo" si 
+	se selecciona esta opción (esto no se ve) y se muestra el nombre de la categoría
+	
+	En la documentación de Thymeleaf viene cómo se escribe cada uno de los tipos de campos de formularios, 
+	es imposible explicarlos todos. 
+ -->
+					<div class="form-group">
+						<label for="categoria">Categoría</label> <select
+							th:field="*{categoria}" class="form-control">
+							<option value="-1">---</option>
+							<option th:each="categoria : ${categorias}"
+								th:value="${categoria.id}" th:text="${categoria.nombre}">Categoría</option>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-default">Enviar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

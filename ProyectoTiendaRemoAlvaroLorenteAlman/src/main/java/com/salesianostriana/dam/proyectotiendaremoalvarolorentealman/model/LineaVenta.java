@@ -17,7 +17,5 @@ public class LineaVenta {
 	private Producto producto;
 	
 	
-	public double calcularLineaVenta(double ganancia) {
-		return cantidad * producto.calcularPrecio(ganancia);
-	}
+	
 }
