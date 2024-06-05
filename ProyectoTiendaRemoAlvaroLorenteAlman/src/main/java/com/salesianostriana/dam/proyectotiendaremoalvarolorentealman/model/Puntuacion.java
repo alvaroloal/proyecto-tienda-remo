@@ -1,7 +1,6 @@
 package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model;
 
-import java.util.Date;
-
+import java.time.LocalDate;
 import org.springframework.data.annotation.CreatedDate;
 
 import jakarta.persistence.Entity;
@@ -19,9 +18,9 @@ public class Puntuacion {
 	@GeneratedValue
 	private Long id;
 	
-	//Ojo, antiguo, debería ser LocalDate no tipo Date
+	
 	@CreatedDate
-	private Date fecha;
+	private LocalDate fecha;
 	
 	private int puntuacion;
 	
