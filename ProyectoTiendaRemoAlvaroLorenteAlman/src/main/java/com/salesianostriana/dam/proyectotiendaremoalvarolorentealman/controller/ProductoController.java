@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,11 +34,6 @@ public class ProductoController {
 	public String nuevaProducto(Model model) {
 		
 		model.addAttribute("producto", new Producto());
-		//En el formulario de un nuevo producto, 
-		//debemos elegir con un select una categoría de la lista de categorías que hay, 
-		//por lo que debemos pasar al modelo dicha lista de categorías.
-		//En este caso le hemos llamado categorias y la sacamos con findAll de CategoriaService
-		
 		model.addAttribute("categorias", categoriaService.findAll());
 		return "admin/form-producto";
 	}
@@ -65,7 +61,6 @@ public class ProductoController {
 
 	}
 	
-	
 	@GetMapping("/borrar/{id}")
 	public String borrarProducto(@PathVariable("id") Long id, Model model) {
 
@@ -78,8 +73,6 @@ public class ProductoController {
 		return "redirect:/admin/producto/";
 
 	}
-
-	
 	
 
 }

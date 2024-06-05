@@ -24,7 +24,9 @@ body {
  */
 .navbar-fixed-top {
   border: 0;
-  background-color: red;
+  background-color: rgb(220, 53, 69);
+  color: black;
+  font-weight: bold;
 }
 
 /*

@@ -50,6 +50,8 @@ public class ProductoService {
 	}
 	
 	
+	
+	
 	public List<Producto> obtenerProductosAleatorios(int numero) {
 		// Obtenemos los ids de todos los productos
 		List<Long> listaIds = repositorio.obtenerIds();

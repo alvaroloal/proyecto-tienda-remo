@@ -8,4 +8,5 @@ import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model.Usuar
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	Optional<Usuario> findFirstByUsername(String username);
+	Usuario findByUsername(String username);
 }

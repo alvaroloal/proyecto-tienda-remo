@@ -31,8 +31,7 @@ public class Producto {
 	private Long id;
 	
 	private String nombre;
-	
-	@Lob 
+	 
 	private String descripcion;
 	
 	private float pvp;
@@ -83,9 +82,6 @@ public class Producto {
 		return this.puntuaciones.size();
 	}
 
-
-
-
 	public Producto(Long id, String nombre, String descripcion, float pvp, float descuento, String imagen,
 			Usuario usuario, Categoria categoria, Set<Puntuacion> puntuaciones) {
 		super();
@@ -99,6 +95,4 @@ public class Producto {
 		this.categoria = categoria;
 		this.puntuaciones = puntuaciones;
 	}
-	
-
 }

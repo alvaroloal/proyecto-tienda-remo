@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Producto</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <h2 th:text="${#fields.hasErrors()} ? 'Editar Producto' : 'Nuevo Producto'"></h2>
+    <form th:action="@{/productos}" th:object="${producto}" method="post">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" th:field="*{nombre}">
+            <div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+        </div>
+        <div>
+            <label for="precio">Precio:</label>
+            <input type="text" id="precio" th:field="*{precio}">
+            <div th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></div>
+        </div>
+        <div>
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" th:field="*{descripcion}"></textarea>
+            <div th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>
+        </div>
+        <div>
+            <button type="submit">Guardar</button>
+        </div>
+    </form>
+    <a th:href="@{/productos}">Volver a la lista de productos</a>
+</body>
+</html>
