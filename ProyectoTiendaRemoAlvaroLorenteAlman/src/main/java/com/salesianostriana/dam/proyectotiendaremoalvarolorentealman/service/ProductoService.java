@@ -49,9 +49,6 @@ public class ProductoService {
 		return repositorio.findNumProductosByCategoria(categoria);
 	}
 	
-	
-	
-	
 	public List<Producto> obtenerProductosAleatorios(int numero) {
 		// Obtenemos los ids de todos los productos
 		List<Long> listaIds = repositorio.obtenerIds();
@@ -63,6 +60,12 @@ public class ProductoService {
 		return repositorio.findAllById(listaIds);
 
 	}
+	
+	  public void eliminarProducto(Long id) {
+	        repositorio.deleteById(id);
+	    }
+
+	
 	
 
 }

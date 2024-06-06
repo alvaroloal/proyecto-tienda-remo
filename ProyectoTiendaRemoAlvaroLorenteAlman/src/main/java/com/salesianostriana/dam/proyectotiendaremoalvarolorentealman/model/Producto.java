@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -12,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -46,7 +48,13 @@ public class Producto {
 	
 	@OneToMany(mappedBy="producto", cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
 	private Set<Puntuacion> puntuaciones = new HashSet<Puntuacion>();
+	
+	@ManyToMany(mappedBy = "producto")
+	private List<Venta> ventas;
 
+	
+	
+	
 	public Producto(String nombre, String descripcion, float pvp, float descuento, String imagen, Categoria categoria) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
@@ -54,7 +62,6 @@ public class Producto {
 		this.descuento = descuento;
 		this.imagen = imagen;
 		this.categoria = categoria;
-		this.usuario=usuario;
 	}
 	
 	

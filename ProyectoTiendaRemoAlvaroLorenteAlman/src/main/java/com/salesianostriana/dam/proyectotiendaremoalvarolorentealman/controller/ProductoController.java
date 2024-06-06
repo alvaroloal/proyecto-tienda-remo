@@ -74,5 +74,37 @@ public class ProductoController {
 
 	}
 	
+	@GetMapping
+    public String listar(Model model) {
+        model.addAttribute("productos", productoService.findAll());
+        return "admin/productos/lista";
+    }
+
+    @GetMapping("/nuevo")
+    public String mostrarFormularioDeNuevoProducto(Model model) {
+        model.addAttribute("producto", new Producto());
+        return "admin/productos/formulario";
+    }
+
+    @PostMapping
+    public String guardarProducto(@ModelAttribute("producto") Producto producto) {
+        productoService.save(producto);
+        return "redirect:/admin/productos";
+    }
+
+    @GetMapping("/editar/{id}")
+    public String mostrarFormularioDeEditarProducto(@PathVariable Long id, Model model) {
+        Producto producto = productoService.findById(id);
+        model.addAttribute("producto", producto);
+        return "admin/productos/formulario";
+    }
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminarProducto(@PathVariable Long id) {
+        productoService.eliminarProducto(id);
+        return "redirect:/admin/productos";
+    }
+
+	
 
 }
