@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 
 
 
-@Table(name = "usuarios")
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 public class Usuario{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // al insertar un registro el id se autoincrementa
+	@GeneratedValue(strategy = GenerationType.AUTO) // al insertar un registro el id se autoincrementa
 	private Long id;
 	
 	private String nombreCompleto;

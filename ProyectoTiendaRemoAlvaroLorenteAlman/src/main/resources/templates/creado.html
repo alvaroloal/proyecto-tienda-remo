@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thyme leaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Creado</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" />
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3>Usuario creado con éxito!!</h3>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre completo</th>
+                    <th>Nombre usuario</th>
+                    <th>Contraseña</th>
+                    <th>Rol</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-th-text="${usuario.id}"></td>
+                    <td data-th-text="${usuario.nombreCompleto}"></td>
+                    <td data-th-text="${usuario.username}"></td>
+                    <td data-th-text="${usuario.contrasenia}"></td>
+                    <td data-th-text="${usuario.rol}"></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br />
+    <a class="btn btn-info" href="/templates">Volver</a>
+</body>
+
+</html>

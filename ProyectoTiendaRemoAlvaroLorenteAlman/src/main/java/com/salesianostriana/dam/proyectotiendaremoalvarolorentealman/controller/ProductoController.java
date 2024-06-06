@@ -31,7 +31,7 @@ public class ProductoController {
 	}
 
 	@GetMapping("/nuevo")
-	public String nuevaProducto(Model model) {
+	public String nuevoProducto(Model model) {
 		
 		model.addAttribute("producto", new Producto());
 		model.addAttribute("categorias", categoriaService.findAll());
@@ -80,7 +80,7 @@ public class ProductoController {
         return "admin/productos/lista";
     }
 
-    @GetMapping("/nuevo")
+    @GetMapping("/nuevo2")
     public String mostrarFormularioDeNuevoProducto(Model model) {
         model.addAttribute("producto", new Producto());
         return "admin/productos/formulario";
@@ -92,7 +92,7 @@ public class ProductoController {
         return "redirect:/admin/productos";
     }
 
-    @GetMapping("/editar/{id}")
+    @GetMapping("/editar2/{id}")
     public String mostrarFormularioDeEditarProducto(@PathVariable Long id, Model model) {
         Producto producto = productoService.findById(id);
         model.addAttribute("producto", producto);

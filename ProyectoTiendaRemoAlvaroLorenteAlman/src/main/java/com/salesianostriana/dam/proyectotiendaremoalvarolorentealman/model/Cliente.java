@@ -30,8 +30,8 @@ public class Cliente extends Usuario {
 	/*
 	 * cliente realiza muchas ventas
 	 * */
-	@OneToMany(mappedBy = "cliente")
-	private List<Venta> ventas;
+	/*@OneToMany(mappedBy = "cliente")
+	private List<Venta> ventas;*/
 
 	public Cliente(String nombreCompleto, String username, String contrasenia, String rol, String telefono,
 			String direccion, String numeroTarjeta, String email) {

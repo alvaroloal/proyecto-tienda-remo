@@ -46,7 +46,13 @@ public class UsuarioController {
         model.addAttribute("usuario", new Usuario());
         return "templates/nuevo";
     }
- 
+    
+    
+    /*metodo crear, antes de crear e insertar un elemento en la base de datos, 
+     * se encarga de comprobar que 
+     * los valores que se le pasan sean correctos
+     * 
+     * */
     @RequestMapping(value="/crear", method=RequestMethod.POST)
     public String crear(Usuario usuario,
             BindingResult bindingResult, Model model){
@@ -58,7 +64,9 @@ public class UsuarioController {
             return "templates/creado";
         }
     }
- 
+    /*
+     * muestra los valores del nuevo registro
+     * */
     @RequestMapping(value="/creado", method = RequestMethod.POST)
     public String creado(@RequestParam("usuario") Usuario usuario){
         return "/templates/creado";

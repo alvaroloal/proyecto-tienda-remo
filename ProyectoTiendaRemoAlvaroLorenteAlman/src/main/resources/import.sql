@@ -10,22 +10,17 @@ INSERT INTO CATEGORIA (ID, NOMBRE, DESTACADA, IMAGEN) VALUES (2,'Barcos',false,n
 INSERT INTO CATEGORIA (ID, NOMBRE, DESTACADA, IMAGEN) VALUES (3,'Ropa deportiva',false,null);
 
 
-INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (1,'Orza y cortaolas','RAM SDll 39,6  ',565, 0,'',1);
-INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (2,'Portante','RAM SDll 39,6  ',565, 0,'',2);
-INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (3,'H','RAM SDll 39,6  ',565, 0,'',3);
-INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (4,'HP Noteb6GB SSD/15.6','RAM SDll 39,6  ',565, 0,'',1);
-INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (5,'HP Noteb6GB SSD/15.6','RAM SDll 39,6  ',565, 0,'',1);
-INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (6,'HP Noteb6GB SSD/15.6','RAM SDll 39,6  ',565, 0,'',1);
-INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (7,'HP Noteb6GB SSD/15.6','RAM SDll 39,6  ',565, 0,'',1);
-INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (8,'HP Noteb6GB SSD/15.6','RAM SDll 39,6  ',565, 0,'',1);
-INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (9,'HP Noteb6GB SSD/15.6','RAM SDll 39,6  ',565, 0,'',1);
-INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (10,'HP Noteb6GB SSD/15.6','RAM SDll 39,6  ',565, 0,'',1);
-INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (11,'HP Noteb6GB SSD/15.6','RAM SDll 39,6  ',565, 0,'',1);
-INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (12,'HP Noteb6GB SSD/15.6','RAM SDll 39,6  ',565, 0,'',1);
+INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (1,'Orza y timón','Sirve para controlar la direccion del bote',35, 0,'https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG',1);
+INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (2,'Dos sin','Bote de dos remeros con un remo cada uno',2300, 0,'https://www.empacher.com/fileadmin/EN/products/racing-boats/empacher-racing-double-nzl.jpg',2);
+INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (3,'Skiff','Bote individual',1000, 0,'https://www.empacher.com/fileadmin/EN/products/racing-boats/empacher-racing-single.jpg',2);
+INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (4,'Cuatro sin','Bote de cuatro remeros con un remo cada uno',3400, 0.2,'https://www.empacher.com/fileadmin/EN/products/racing-boats/empacher-racing-four-gbr.jpg',2);
+INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (5,'8+','Bote de ocho remeros con un remo cada uno',7000, 0,'https://img.nauticexpo.es/images_ne/photo-g/22344-10176238.jpg',2);
+INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (6,'Camiseta térmica','Camiseta de licra para poder desarrollar un buen entrenamiento',35, 0,'https://media.futbolmania.com/media/catalog/product/cache/1/image/0f330055bc18e2dda592b4a7c3a0ea22/c/w/cw9488_imagen-de-la-camiseta-manga-larga-adidas-alphaskin-azul_1_frontal.jpg',3);
+INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (7,'Remo','Nos proporciona la fuerza para el mvoimiento del bote',150, 0.1,'https://www.empacher.com/fileadmin/EN/products/oars/oar_bags.JPG',1);
+INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (8,'Orza','Es la estructura donde van colocados los remos',230, 0,'https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Carbonflosse.JPG',1);
+INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (9,'Platanito','Prenda elástica y transpirable',50, 0,'https://tienda.austral.es/labradoresrc/img/p/1/4/8/1/5/14815-large_default.jpg',3);
 
-INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (24,'Xiaomi Redmi 5 3/32Gb Negro libre','Característensor Omnivision OV12A10 Pantalla de 5.7" en formato 18:9 y resolución de 1440 x 720px ',159, 0,'https://thumb.pccomponentes.com/w-530-530/articles/14/149265/thumb-114131-default-big1.jpg',4);
-INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (29,'Samsung Galaxy S8 4G 64GB Negro Libre','EspecG: 1700/2100, 1800tootha Dual Edge Dimensiones y  x 8.0 mm Peso 151 gr Bateria 3000 mAh',499, 0.1,'https://thumb.pccomponentes.com/w-530-530/articles/12/123417/s8n3.jpg',4);
-INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (30,'Samsung Galaxy A6 Plus 3/32Gb Dual Sim Dorado Libre','vedades q y brillantes.  Añade un toque de estilo y diversión a es selfies.',369, 0,'https://thumb.pccomponentes.com/w-530-530/articles/16/161879/15075513771-fm-01-2.jpg',4);
+
 
 ALTER SEQUENCE categoria_seq RESTART WITH 100 INCREMENT BY 1;
 ALTER SEQUENCE producto_seq RESTART WITH 100 INCREMENT BY 1;
