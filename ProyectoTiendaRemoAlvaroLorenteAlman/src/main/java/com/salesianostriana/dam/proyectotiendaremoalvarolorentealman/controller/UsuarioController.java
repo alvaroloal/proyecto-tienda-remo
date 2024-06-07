@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,62 +16,59 @@ import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model.Usuar
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.UsuarioService;
 
 @Controller
-@RequestMapping("/templates")
+@RequestMapping("/admin/usuario")
 public class UsuarioController {
 	@Autowired
     private UsuarioService usuarioService;
+	
+	
+	@GetMapping("/")
+	public String index(Model model) {
+		model.addAttribute("usuarios", usuarioService.findAll());
+		return "admin/list-usuario";
+	}
+	@GetMapping("/nuevo")
+	public String nuevoUsuario(Model model) {
+		model.addAttribute("usuario", new Usuario());
+		
+		return "admin/form-usuario";
+	}
+	
+	
+	@PostMapping("/nuevo/submit")
+	public String guardarNuevoUsuario(Usuario usuario, Model model) {
+		usuarioService.save(usuario);
+		return "redirect:/admin/usuario";
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
-
-    @PostMapping("/register")
-    public String register(@ModelAttribute Usuario usuario) {
-        usuarioService.save(usuario);
-        return "redirect:/usuarios/login";
-    }
+	}
+	
+	@GetMapping("/editar/{id}")
+	public String editarUsuario(@PathVariable("id") Long id, Model model) {
+		Usuario usuario = usuarioService.findById(id);
+		
+		if (usuario != null) {
+			model.addAttribute("usuario", usuario);
+			return "admin/form-usuario";
+		} else {
+			return "redirect:/admin/usuario/";
+		}
+	}
+	
+	
+	@GetMapping("/borrar/{id}")
+	public String borrarUsuario(@PathVariable("id")Long id, Model model) {
+		
+		Usuario usuario = usuarioService.findById(id);
+		
+		if(usuario != null) {
+			usuarioService.delete(usuario);
+		}
+		return "redirect:/admin/usuario";
+		
+	}
+	
+	
     
- 
-    /*
-     *  se leen todos los registros de la tabla ‘usuario’,
-     * */
-    @RequestMapping(value="", method = RequestMethod.GET)
-    public String listaUsuarios(Model model){
-        model.addAttribute("usuarios", usuarioService.findAll());
-        return "templates/lista";
-    }
- 
-    @RequestMapping(value="/nuevo", method=RequestMethod.GET)
-    public String nuevo(Model model){
-        model.addAttribute("usuario", new Usuario());
-        return "templates/nuevo";
-    }
-    
-    
-    /*metodo crear, antes de crear e insertar un elemento en la base de datos, 
-     * se encarga de comprobar que 
-     * los valores que se le pasan sean correctos
-     * 
-     * */
-    @RequestMapping(value="/crear", method=RequestMethod.POST)
-    public String crear(Usuario usuario,
-            BindingResult bindingResult, Model model){
-        if(bindingResult.hasErrors()){
-            return "/templates/nuevo";
-        }else{
-            usuarioService.save(usuario);
-            model.addAttribute("usuario", usuario);
-            return "templates/creado";
-        }
-    }
-    /*
-     * muestra los valores del nuevo registro
-     * */
-    @RequestMapping(value="/creado", method = RequestMethod.POST)
-    public String creado(@RequestParam("usuario") Usuario usuario){
-        return "/templates/creado";
-    }
  
 
 }

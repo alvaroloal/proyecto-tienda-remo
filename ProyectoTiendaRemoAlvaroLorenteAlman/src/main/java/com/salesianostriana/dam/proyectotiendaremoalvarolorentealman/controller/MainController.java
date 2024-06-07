@@ -10,19 +10,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model.Producto;
+import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model.Usuario;
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.CategoriaService;
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.ProductoService;
+import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.UsuarioService;
 
 @Controller
 public class MainController {
 
 	private static final int NUM_PRODUCTOS_ALEATORIOS = 7;
+	private static final int USUARIOS_ALEATORIOS = 3;
 
 	@Autowired
 	private CategoriaService categoriaService;
 
 	@Autowired
 	private ProductoService productoService;
+	
+	@Autowired
+	private UsuarioService usuarioService;
 
 	@GetMapping({ "/" })
 	public String inicio(Model model) {
@@ -52,7 +58,7 @@ public class MainController {
 	@GetMapping("/product/{id}")
 	public String showDetails(@PathVariable("id") Long id, Model model) {
 		
-		//buscar prod por id
+		//buscar producto por id
 		Producto p = productoService.findById(id);
 		
 		if (p != null) {
@@ -63,5 +69,40 @@ public class MainController {
 		return "redirect:/";
 		
 	}
+	
+	@GetMapping("/usuarios")
+	public String usuarios(@RequestParam(name="idUsuario", required=false) Long idUsuario, Model model) {		
+		
+		
+		List<Usuario> usuarios = null;
+		
+		if (idUsuario == null) {
+			usuarios = usuarioService.usuarioAleatorio(USUARIOS_ALEATORIOS);
+		}
+		
+		model.addAttribute("usuarios", usuarios);
+		
+		return "index-usuarios";
+	}
+	
+	@GetMapping("/usuario/{id}")
+	public String showDetailsUsuarios(@PathVariable("id") Long id, Model model) {
+		
+		//buscar usuario por id
+		Usuario usuario = usuarioService.findById(id);
+		
+		if (usuario != null) {
+			model.addAttribute("usuario", usuario);
+			return "detail-usuario";
+		}
+		
+		return "redirect:/";
+		
+	}
+	
+	
+	
+	
+	
 
 }
