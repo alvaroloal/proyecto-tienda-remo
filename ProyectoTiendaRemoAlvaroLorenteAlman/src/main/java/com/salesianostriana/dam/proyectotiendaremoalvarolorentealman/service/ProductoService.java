@@ -11,8 +11,6 @@ import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model.Categ
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model.Producto;
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.repository.ProductoRepository;
 
-
-
 @Service
 public class ProductoService {
 	

@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +20,6 @@ import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.Usu
 public class MainController {
 
 	private static final int NUM_PRODUCTOS_ALEATORIOS = 7;
-	private static final int USUARIOS_ALEATORIOS = 3;
 
 	@Autowired
 	private CategoriaService categoriaService;
@@ -77,7 +77,7 @@ public class MainController {
 		List<Usuario> usuarios = null;
 		
 		if (idUsuario == null) {
-			usuarios = usuarioService.usuarioAleatorio(USUARIOS_ALEATORIOS);
+			usuarios = usuarioService.findAll();
 		}
 		
 		model.addAttribute("usuarios", usuarios);
@@ -89,7 +89,7 @@ public class MainController {
 	public String showDetailsUsuarios(@PathVariable("id") Long id, Model model) {
 		
 		//buscar usuario por id
-		Usuario usuario = usuarioService.findById(id);
+		Optional<Usuario> usuario = usuarioService.findById(id);
 		
 		if (usuario != null) {
 			model.addAttribute("usuario", usuario);

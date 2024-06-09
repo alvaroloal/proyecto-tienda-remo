@@ -67,28 +67,7 @@
 		</div>
 	</nav>
 	
-<!-- 
-	Formulario de producto: Como se explica en categoría hace falta:
-	
-	* method="post" 
-	* th:action="@{/admin/producto/nuevo/submit}" Ruta al método del controlador que esté anotado
-	con PostMapping de la clase ProductoController, en este caso, el método
-	
-		@PostMapping("/nuevo/submit")
-		public String submitNuevoProducto(Producto producto, Model model)
-		
-	De nuevo debemos tener en cuenta que encima de este método solo aparace parte de la ruta porque hemos 
-	anotado la clase entera con @RequestMapping("/admin/producto") que es la que nos hace "ahorrar" tener que poner
-	toda la parte común de la ruta en cada método, si te fijas, la suma de la ruta del @RequestParam y la 
-	del @PostMapping es la que está escrita en el th=action
-	
-	*th:object="${producto}" es el command object con el que trabajamo en el formulario, es decir, 
-	algo así como el objeto que se "formará" al recoger los campos del formulario. De nuevo, en este caso sencillo, 
-	coincide con una de nuestras entidades Producto.
-	
-	El único campo nuevo en este caso es el select que se explica más abajo
 
- -->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-offset-2 col-md-8">

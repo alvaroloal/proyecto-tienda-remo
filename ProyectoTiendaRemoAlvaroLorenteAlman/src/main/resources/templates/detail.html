@@ -69,20 +69,6 @@
 					<div class="row">
 						<div class=col-md-4>
 							
-<!-- 
-	Para mostrar el precio miramos si el producto tiene descuento y usamos el operador (?)
-	Si el descuento es cero se muestra como se ha visto normalmente 
-	usando ${#numbers.formatCurrency(producto.pvp)}, es decir, la expresión de numbers
-	para mostrar número en formato de moneda y, si no es así, es decir, 
-	si el producto tiene descuento calculamos el nuevo precio, 
-	sacando factor común en la operación pvp-pvp*descuento, que queda como se puede ver 
-	después de los :${#numbers.formatCurrency(producto.pvp * (1 - producto.descuento)) 
-	también en formato moneda
-	
-	Realmente, no deben hacerse muchas operaciones dentro del html, pare eso están los servicios, 
-	esto se ha hecho aquí para que se pueda ver que es posible y cómo usar estas operaciones
-
- -->
 							<span class="pvp"
 								th:text="${producto.descuento == 0} ? ${#numbers.formatCurrency(producto.pvp)} : ${#numbers.formatCurrency(producto.pvp * (1 - producto.descuento))}">100€</span>
 						</div>
@@ -91,11 +77,7 @@
 								<span th:text="${#numbers.formatCurrency(producto.pvp)}">120€</span>
 							</div>
 							
-<!-- 
-	Se muestra el descuento en forma de porcentaje usando la expresión de #numbers
-	#numbers.formatPercent(producto.descuento,1,0)
-	El primer número, el 1 significa cifras mínimas que se mostrarán y la segunda, el número de decimales
--->
+
 
 							<div class="col-md-3 discount">
 								<span class="label-discount">Descuento </span> <span class="label label-danger"
@@ -105,23 +87,7 @@
 					</div>
 				</div>
 				
-<!-- Para "rellenar o pintar" las estrellas de puntuación: (aquí no se gestionan las puntuaciones) 
-	
-	Para ello usamos un bucle que recorrerá las 5 estrellas que tendrá un producto
-	como máximo (para nosotros cada i del th:each es una estrella). Para cada i:
-	
-	Usamos th:classappend que es una forma que ofrece Th para usar condicionales "dinámicamente". 
-	
-	Supongamos que un producto tiene 3.5 de puntuación media:
-	
-	- Primer número i del bucle i=1 es menor que 3.5 por lo que pintamos la estrella rellena glyphicon-star, 
-	- Seguimos en el mismo producto, para el i=2 la puntación media vuelve a ser mayor, 
-	volvemos a pintar la estrella rellena e igual para 3. 
-	- Para 4 ya no se cumplirá la primera condición por lo que se pintará 
-	la estrella vacía al igual que la 5 (nuestro programa no pinta estrellas a la mitad) 
-	pero si pinta el número con decimales que da la puntuación media en el siguiente span.
 
- -->
 				<div class="row">
 					<div class="detail-rating col-md-4">
 						<span th:each="i:${#numbers.sequence(1,5)}" class="glyphicon"

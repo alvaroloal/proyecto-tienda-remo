@@ -67,7 +67,7 @@
 							<th>Id</th>
 							<th>Nombre</th>
 							<th>Nombre usuario</th>
-							<th>Rol</th>
+							<th>Contraseña</th
 							<th>Operaciones</th>
 						</tr>
 					</thead>
@@ -76,8 +76,8 @@
 							<td th:text="${usuario.id}"></td>
 							<td th:text="${usuario.nombreCompleto}"></td>
 							<td th:text="${usuario.username}"></td>
-							<td th:text="${usuario.rol}"></td>
-
+							<td th:text="${usuario.contrasenia}"></td>
+							
 							<td class="operaciones"><a href="#"
 									th:href="@{/admin/usuario/editar/{id}(id=${usuario.id})}"
 									class="btn btn-primary">Editar</a>
@@ -115,7 +115,7 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<script src="../../static/js/app.js" th:src="@{/js/app.js}"></script>
+	<script src="../../static/js/javascript.js" th:src="@{/js/javascript.js}"></script>
 
 
 

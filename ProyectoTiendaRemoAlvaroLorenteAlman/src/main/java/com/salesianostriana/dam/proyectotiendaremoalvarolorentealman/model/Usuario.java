@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,35 +12,39 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO) // al insertar un registro el id se autoincrementa
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // al insertar un registro el id se autoincrementa
 	private Long id;
 	
 	private String nombreCompleto;
 	private String username;
 	private String contrasenia;
-	private String rol;//ADMIN O CLIENTE
+	private boolean esAdmin;
 	
-	
+
 	/*@OneToMany(mappedBy = "usuario")
-	private List<Producto> productos;
+	private List<Producto> productos;s
+	
 	@OneToMany(mappedBy = "usuario")
 	private List<Venta> ventas;*/
 	
-	
-	public Usuario(String nombreCompleto, String username, String contrasenia, String rol) {
+	public Usuario(String nombreCompleto, String username, String contrasenia, boolean esAdmin) {
 		super();
 		this.nombreCompleto = nombreCompleto;
 		this.username = username;
 		this.contrasenia = contrasenia;
-		this.rol = rol;
+		this.esAdmin = esAdmin;
 	}
+	
+	
+	
 	
 }

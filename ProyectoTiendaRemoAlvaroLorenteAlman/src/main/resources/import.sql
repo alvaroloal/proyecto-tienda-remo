@@ -1,13 +1,13 @@
 
-INSERT INTO USUARIOS (ID,NOMBRECOMPLETO, USERNAME, CONTRASENIA, ADMIN) VALUES  ('admin', 'admin', 'admin', true);
-INSERT INTO USUARIOS (ID,NOMBRECOMPLETO, USERNAME, CONTRASENIA, ADMIN) VALUES  ('user', 'user', '1234', false);
+INSERT INTO USUARIO (ID, NOMBRE_COMPLETO, USERNAME, CONTRASENIA, ES_ADMIN) VALUES  (1,'administrador', 'admin', 'admin', true);
+INSERT INTO USUARIO (ID, NOMBRE_COMPLETO, USERNAME, CONTRASENIA, ES_ADMIN) VALUES  (2,'cliente', 'cliente', '1234', false);
 
 
+INSERT INTO CLIENTE (ID, TELEFONO, DIRECCION, NUMERO_TARJETA, EMAIL) VALUES (1,'767676776', 'PLAZA PEDRO', '2345322342', 'ejemplo@gmail.com');
 
-
-INSERT INTO CATEGORIA (ID, NOMBRE, DESTACADA, IMAGEN) VALUES (1,'Componentes',true,null);
-INSERT INTO CATEGORIA (ID, NOMBRE, DESTACADA, IMAGEN) VALUES (2,'Barcos',false,null);
-INSERT INTO CATEGORIA (ID, NOMBRE, DESTACADA, IMAGEN) VALUES (3,'Ropa deportiva',false,null);
+INSERT INTO CATEGORIA (ID, NOMBRE, DESTACADA, IMAGEN) VALUES (1,'Componentes',true,'');
+INSERT INTO CATEGORIA (ID, NOMBRE, DESTACADA, IMAGEN) VALUES (2,'Barcos',false,'');
+INSERT INTO CATEGORIA (ID, NOMBRE, DESTACADA, IMAGEN) VALUES (3,'Ropa deportiva',false,'');
 
 
 INSERT INTO PRODUCTO (ID, NOMBRE, DESCRIPCION, PVP, DESCUENTO, IMAGEN, CATEGORIA_ID) VALUES (1,'Orza y timón','Sirve para controlar la direccion del bote',35, 0,'https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG',1);

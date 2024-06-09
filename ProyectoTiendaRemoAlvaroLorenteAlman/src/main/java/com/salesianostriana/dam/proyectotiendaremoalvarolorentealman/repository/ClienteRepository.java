@@ -10,5 +10,6 @@ import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model.Clien
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 	
 	Optional<Cliente> findById(Long id);
+	Optional <Cliente> findByUsername(String username);
 
 }

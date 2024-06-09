@@ -13,7 +13,7 @@ import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model.Clien
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.ClienteService;
 
 @Controller
-@RequestMapping("/admin/clientes")
+@RequestMapping("/admin/cliente")
 public class ClienteController {
 
     @Autowired
@@ -22,7 +22,7 @@ public class ClienteController {
     @GetMapping
     public String listar(Model model) {
         model.addAttribute("clientes", clienteService.listarClientes());
-        return "admin/lista";
+        return "admin/list-cliente";
     }
 
     @GetMapping("/nuevo")
