@@ -20,10 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model.Usuario;
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.UsuarioService;
-/*
- * crud completo 
- * 
- * */
+
 @Controller
 @RequestMapping("/admin/usuario")
 public class UsuarioController {

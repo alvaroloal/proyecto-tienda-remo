@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name="usuario")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario {
 
@@ -29,7 +30,6 @@ public class Usuario {
 	private String contrasenia;
 	private boolean esAdmin;
 	
-
 	/*@OneToMany(mappedBy = "usuario")
 	private List<Producto> productos;s
 	
