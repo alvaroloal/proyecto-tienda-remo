@@ -56,28 +56,6 @@
 		</div>
 	</nav>
 
-<!-- 
-	La parte general de los formularios se ha explicado en el ejemplo anterior, aún así se vuelve a comentar.
-	Para los form necesitamos en la etiqueta <form los siguientes atributos:
-	
-	* method lo pondremos como post
-	* th:action debemos llevar a la ruta con la que hayamos anotado el controller que atienda a la petición 
-	post del formulario, es decir, la de "editar-guardar...", en este caso, th:action="@{/admin/categoria/nueva/submit}" nos 
-	lleva al método submitNUevaCategoria de la clase CategoriaController que es el que se encarga de guardar la nueva 
-	categoría que estamos añadiendo con este formulario.
-	* th:object con el nombre de la entidad que estamos "recogiendo" o con la que estamos
-	"trabajando" en el formulario. 
-	
-	En este caso, coincide con la que tenemos anotada como @Entity en el modelo (Categoria). El formulario
-	no tiene porqué tener tantos campos como la entidad, podría tener menos, pero no puede tener más. Para eso, se tendrá que crear 
-	una nueva clase (cuando queremos formularios con campos de distintas entidades). 
-	
-	* A partir de ahí, aparecen los campos del formulario. Según el tipo que se quiera o venga mejor, habrá una
-	sintaxis u otra para trabajar con ellos en Thymeleaf (radios, check, select...)
-	
-	* La línea siguiente <span th:text="${categoria.id} ? 'Editar' : 'Nueva'"></span> muestra el título de editar o nueva según si
-	la categoría con la que estamos trabajando tiene id o no. Si tiene, será editar y si no lo tiene estaremos creando una nueva.
--->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-offset-2 col-md-8">
