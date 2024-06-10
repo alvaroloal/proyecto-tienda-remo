@@ -80,7 +80,7 @@ public class ProductoController {
         return "admin/productos/lista";
     }
 
-    @GetMapping("/nuevo2")
+    @GetMapping("/nuevoProducto")
     public String mostrarFormularioDeNuevoProducto(Model model) {
         model.addAttribute("producto", new Producto());
         return "admin/productos/formulario";
@@ -92,7 +92,7 @@ public class ProductoController {
         return "redirect:/admin/productos";
     }
 
-    @GetMapping("/editar2/{id}")
+    @GetMapping("/editarForm/{id}")
     public String mostrarFormularioDeEditarProducto(@PathVariable Long id, Model model) {
         Producto producto = productoService.findById(id);
         model.addAttribute("producto", producto);
