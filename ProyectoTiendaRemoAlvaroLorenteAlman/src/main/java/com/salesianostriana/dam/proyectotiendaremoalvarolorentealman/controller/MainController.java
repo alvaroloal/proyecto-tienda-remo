@@ -70,35 +70,7 @@ public class MainController {
 		
 	}
 	
-	@GetMapping("/usuarios")
-	public String usuarios(@RequestParam(name="idUsuario", required=false) Long idUsuario, Model model) {		
-		
-		
-		List<Usuario> usuarios = null;
-		
-		if (idUsuario == null) {
-			usuarios = usuarioService.findAll();
-		}
-		
-		model.addAttribute("usuarios", usuarios);
-		
-		return "index-usuarios";
-	}
 	
-	@GetMapping("/usuario/{id}")
-	public String showDetailsUsuarios(@PathVariable("id") Long id, Model model) {
-		
-		//buscar usuario por id
-		Optional<Usuario> usuario = usuarioService.findById(id);
-		
-		if (usuario != null) {
-			model.addAttribute("usuario", usuario);
-			return "detail-usuario";
-		}
-		
-		return "redirect:/";
-		
-	}
 	
 	
 	

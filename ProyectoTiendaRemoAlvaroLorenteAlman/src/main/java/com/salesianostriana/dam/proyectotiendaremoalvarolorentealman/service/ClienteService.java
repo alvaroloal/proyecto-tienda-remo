@@ -31,6 +31,8 @@ public class ClienteService extends BaseServiceImpl<Cliente, Long, ClienteReposi
     public void eliminarCliente(Long id) {
         clienteRepositorio.deleteById(id);
     }
+    
+    
 
  
 }
