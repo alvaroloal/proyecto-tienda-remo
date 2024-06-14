@@ -33,7 +33,7 @@ import lombok.NoArgsConstructor;
 public class Usuario implements UserDetails{
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // al insertar un registro el id se autoincrementa
+	@GeneratedValue(strategy = GenerationType.AUTO) // al insertar un registro el id se autoincrementa
 	private Long id;
 	
 	private String nombreCompleto;
@@ -46,6 +46,13 @@ public class Usuario implements UserDetails{
 	
 	@OneToMany(mappedBy = "usuario")
 	private List<Venta> ventas;*/
+	
+	public Usuario(String nombreCompleto, String username, String contrasenia, boolean esAdmin) {
+		this.nombreCompleto = nombreCompleto;
+		this.username = username;
+		this.contrasenia = contrasenia;
+		this.esAdmin = esAdmin;
+	}
 	
 
 	@Override
@@ -80,6 +87,8 @@ public class Usuario implements UserDetails{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 	
 	
 

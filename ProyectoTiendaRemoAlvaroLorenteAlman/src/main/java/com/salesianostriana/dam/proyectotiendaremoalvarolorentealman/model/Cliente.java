@@ -22,13 +22,18 @@ public class Cliente extends Usuario {
 	private String numeroTarjeta;
 	private String email;
 	
+	
+	
 	public Cliente(String nombreCompleto, String username, String contrasenia, boolean esAdmin, String telefono,
 			String direccion, String numeroTarjeta, String email) {
+		super(nombreCompleto, username, contrasenia, esAdmin);
 		this.telefono = telefono;
 		this.direccion = direccion;
 		this.numeroTarjeta = numeroTarjeta;
 		this.email = email;
 	}
+	
+	
 	
 	
 	/*
