@@ -25,6 +25,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name="producto")
 public class Producto {
 	
@@ -83,17 +84,5 @@ public class Producto {
 		return this.puntuaciones.size();
 	}
 
-	public Producto(Long id, String nombre, String descripcion, float pvp, float descuento, String imagen,
-			Usuario usuario, Categoria categoria, Set<Puntuacion> puntuaciones) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.pvp = pvp;
-		this.descuento = descuento;
-		this.imagen = imagen;
-		this.usuario = usuario;
-		this.categoria = categoria;
-		this.puntuaciones = puntuaciones;
-	}
+	
 }
