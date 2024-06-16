@@ -11,6 +11,7 @@ import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model.Usuar
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+	
 
 	/* encontar al usuario en base a su nombre de usuario */
 	Optional<Usuario> findFirstByUsername(String username);
