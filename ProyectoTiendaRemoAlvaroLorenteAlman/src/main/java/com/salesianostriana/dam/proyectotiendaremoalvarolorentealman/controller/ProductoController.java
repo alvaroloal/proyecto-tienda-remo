@@ -108,3 +108,36 @@ public class ProductoController {
 	
 
 }
+    
+    
+    /*
+    @GetMapping("/editar/{id_usuario}/{id_producto}")
+	public String editarProducto(@PathVariable("id_usuario") Long id_usuario, @PathVariable("id_producto") Long id_producto,  Model model) {
+
+		Producto producto = productoService.findById(id_producto);
+		//comprobar en la bbd si el usuario que esta intennato aditar es admin o no
+		
+		//buscar el usuario en la bbdd y devuelve si es administardo o no
+		//en el servicio  de usuario
+		//boolean esAdmin = usuarioService.isAdmin
+				
+				
+		// id del usuario y el id del producto
+		//comprobar que es admin 
+		//si el producto existe y es admin 
+		if (producto != null) {
+			model.addAttribute("producto", producto);
+			model.addAttribute("categorias", categoriaService.findAll());
+			//añadir el servicio si es admin o no
+			//model.addAttribute("esAdmin", esAdmin);
+
+			return "admin/form-producto";
+		} else {
+			return "redirect:/producto/";
+		}
+
+	}*/
+
+	
+
+

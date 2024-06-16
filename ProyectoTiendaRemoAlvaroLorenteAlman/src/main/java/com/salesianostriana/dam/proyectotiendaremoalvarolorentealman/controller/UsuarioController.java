@@ -38,5 +38,11 @@ public class UsuarioController {
 	}
 	
 	
+	//endopoint del usuariom id
+	//modelo para añadir el id de el usuario paa identfiicar al usuario que adita el producto
+	
+	
+	
+	
 
 }

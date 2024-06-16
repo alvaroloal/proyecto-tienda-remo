@@ -49,7 +49,7 @@
 						</a>
 					</li>
 					<li class="navbar-item">
-						<a th:href="@{/list-producto}" class="navbar-link" data-nav-link>
+						<a th:href="@{/nuevo-usuario}" class="navbar-link" data-nav-link>
 							<button type="button" class="btn btn-danger fs-2 me-3">
 							Ver productos
 							</button>
@@ -95,7 +95,6 @@
 	<div class="container mt-5">
 		<div class="row">
 			<div class="col-sm-4">
-				<!--<h1>¿Quienes somos?</h1>				-->
 				<div class="img1"><img th:src="@{/img/dos.jpg}" width="300px"></div><br>
 				<p class="fs-2">Somos dos remeros del Real Círculo de Labradores de Sevilla que hemos decidido emprender
 					en un
@@ -103,7 +102,7 @@
 				<hr class="d-sm-none">
 			</div>
 			<div class="container col-sm-8">
-				<div class="img2"><img th:src="@{/img/8+.jpg}" alt="img" width="100%">
+				<div class="img2"><img th:src="@{/img/8.jpg}" alt="img" width="100%">
 				</div>
 			</div>
 		</div>
@@ -114,6 +113,40 @@
 	<div id="productos" class="container mt-5">
 		<div class="row">
 			<h1 class="mt-4 mb-5">Productos que ofrecemos</h1>
+			<div class="row">
+						<div class="col-md-4 mb-4">
+							<div class="card h-100">
+								<img th:src="@{/img/pedalina.jpg}" class="card-img-top" alt="imagen">
+								<div class="card-body">
+									<h5 class="card-title fs-1">Componentes</h5>
+									<p class="card-text fs-3">Partes y recambios para barcos.</p>
+									<a href="#componentes" class="btn btn-primary">Ver más</a>
+								</div>
+							</div>
+						</div>
+			
+						<div class="col-md-4 mb-4">
+							<div class="card h-100">
+								<img th:src="@{/img/2-.jpg}" class="card-img-top" alt="imagen">
+								<div class="card-body">
+									<h5 class="card-title fs-1">Barcos</h5>
+									<p class="card-text fs-3">Amplia gama de tipos de barcos de competición.</p>
+									<a href="#botes" class="btn btn-primary">Ver más</a>
+								</div>
+							</div>
+						</div>
+			
+						<div class="col-md-4 mb-4">
+							<div class="card h-100">
+								<img th:src="@{/img/termica.png}" class="card-img-top" alt="imagen">
+								<div class="card-body">
+									<h5 class="card-title fs-1">Ropa</h5>
+									<p class="card-text fs-3">Ropa de entrenamiento.</p>
+									<a href="#ropa" class="btn btn-primary">Ver más</a>
+								</div>
+							</div>
+						</div>
+					</div>
 			
 		</div>
 		

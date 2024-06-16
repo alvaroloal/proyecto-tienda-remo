@@ -4,11 +4,7 @@ package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model;
 import java.util.Collection;
 import java.util.List;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,7 +26,7 @@ import lombok.NoArgsConstructor;
 @Table(name="usuario")
 @Inheritance(strategy = InheritanceType.JOINED)
 @Builder
-public class Usuario implements UserDetails{
+public class Usuario /*implements UserDetails*/{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO) // al insertar un registro el id se autoincrementa
@@ -55,38 +51,9 @@ public class Usuario implements UserDetails{
 	}
 	
 
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		String role = "ROLE_";
-		role += (esAdmin) ? "ADMIN" : "USER";
-		return List.of(new SimpleGrantedAuthority(role));
-	}	
+		
 
-	@Override
-	public boolean isAccountNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		return true;
-	}
-
-	@Override
-	public String getPassword() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	
 	

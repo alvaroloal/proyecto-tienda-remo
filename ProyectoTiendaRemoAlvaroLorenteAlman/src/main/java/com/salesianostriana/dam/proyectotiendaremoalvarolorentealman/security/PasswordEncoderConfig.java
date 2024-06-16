@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.security;
+/*package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,4 +13,4 @@ public class PasswordEncoderConfig {
 	}
 
 	
-}
+}*/

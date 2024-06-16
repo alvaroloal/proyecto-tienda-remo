@@ -51,8 +51,6 @@ public class Venta {
 	private List<LineaDeVenta> lineasDeVenta = new ArrayList<>();
 
 	
-	
-	
 	public void addLineaDeVenta(LineaDeVenta lv) {
 		lv.setVenta(this);
 		this.lineasDeVenta.add(lv);

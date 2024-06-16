@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service;
+/*package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,4 +21,4 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 				.orElseThrow(() -> new UsernameNotFoundException("Error al buscar el usuario"));
 	}
 
-}
+}*/
