@@ -64,11 +64,7 @@
 						<span th:text="${categoria.id} ? 'Editar' : 'Nueva'"></span> categoría
 					</h1>
 
-<!-- 
-	Campo id oculto aunque es recogido por el formulario, no se muestra. 
-	La gestión de id debe ser opaca para los usuarios
-	Lo hace todo Spring 
--->
+
 
 					<input type="hidden" th:field="*{id}" id="id" />
 					<div class="form-group">
@@ -80,11 +76,7 @@
 							placeholder="http://..." th:field="*{imagen}">
 					</div>
 
-<!-- 
-	Campo tipo checkbox recoge el valor true si se pincha en él y rellena a true el atributo boolean "destacada" 
-	que tenemos en la clase Categoria del modelo, aunque realmente el ser destacada 
-	no hace nada especial en el ejemplo, es solo para que se vea el uso del checkbox
--->
+
 
 					<div class="form-group">
 						<label for="destacada"> <input type="checkbox" id="destacada" value="true"

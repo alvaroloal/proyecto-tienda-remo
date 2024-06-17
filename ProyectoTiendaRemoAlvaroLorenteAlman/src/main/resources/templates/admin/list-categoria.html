@@ -50,22 +50,6 @@
 		</div>
 	</nav>
 
-<!-- Parámetro error
-	
-	Si te fijas en el controlador de categoría, en el método borrarCategoria, 
-	hemos añadido en la url para el caso de que la categoría tenga productos, 
-	un parámetro llamado error=true. 
-	
-	¿Cómo se captura en la plantilla? Thymeleaf nos proporciona un objeto llamado param 
-	(no hay que definirlo, declararlo, etc. ya lo tenemos) que está cargado con todos los 
-	parámetros que haya en la url de esa plantilla, por lo que en este caso, 
-	podemos usar th:if="${param.error} para ver si está el parámetro error.
-	 
-	Si lo hay, significará que la categoría tiene productos y por tanto debemos 
-	mostrar el mensaje de "¡Ainss los Ñus al río de nuevo! ¡No se puede borrar una 
-	categoría que tiene asociados productos!" 
--->
-
 	<div class="container">
 		<div class="row">
 			<div class="col-md-offset-2 col-md-8">
@@ -91,32 +75,7 @@
 					</thead>
 					<tbody>
 
-<!-- 
-	El listado de categorías ya se ha explicado en ejemplos anteriores:
-	
-	Un th:each que recorre la lista de categorías y de cada una 
-	va mostrando algunos de sus atributos
-	el operador Elvis para la imagen muestra la que 
-	tenga si no está vacía y pone una por defecto si está vacío
-	el campo categoria.imagen
-	
-	* Al final, los dos botones de editar y borrar que recogen los id 
-	de la categoría que se quiera borrar o editar al pinchar en ellos
-	Por eso contruirmos la url usando el valor del id correspondiente:
-	
-	th:href="@{/admin/categoria/editar/{id}(id=${categoria.id})}"
-	
-	Esta ruta nos llevará al controller Categoría anotado con la misma ruta, 
-	es nuestro caso, el método
-	editarCategoria anotado con @GetMapping("/editar/{id}") 
-	ya que la primera parte de la ruta
-	es la que hemos puesto encima de la clase con la 
-	anotación @RequestMapping ("/admin/categoria")
-	
-	Finalmente, también aparece th:data-id="${categoria.id} en la última línea 
-	que es el donde se le pasa el id de la categoría que queremos borrar al botón correspondiente 
-	para borrar dicha categoría seleccionada
--->
+
 						<tr th:each="categoria : ${categorias}">
 							<td><img th:src="${not (#strings.isEmpty(categoria.imagen))} ? ${categoria.imagen} : 'http://placehold.it/48x48'"
 									class="img-responsive icono-categoria" alt="imagen" /></td>

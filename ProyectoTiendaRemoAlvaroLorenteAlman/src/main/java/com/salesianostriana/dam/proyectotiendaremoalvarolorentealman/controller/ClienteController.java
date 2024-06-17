@@ -13,41 +13,48 @@ import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model.Clien
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.ClienteService;
 
 @Controller
-@RequestMapping("/admin/cliente")
 public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
-
-    @GetMapping
+    /*
+    @GetMapping({"/", "/list"})
     public String listar(Model model) {
         model.addAttribute("clientes", clienteService.listarClientes());
-        return "admin/list-cliente";
-    }
+        return "nuevo-cliente";
+    }*/
 
     @GetMapping("/nuevo")
     public String mostrarFormularioDeNuevoCliente(Model model) {
         model.addAttribute("cliente", new Cliente());
-        return "admin/formulario";
+        return "formulario-cliente";
     }
 
-    @PostMapping
+    @PostMapping("/nuevo/submit")
     public String guardarCliente(@ModelAttribute("cliente") Cliente cliente) {
         clienteService.guardarCliente(cliente);
-        return "redirect:/admin";
+        return "redirect:/";
     }
+    
 
     @GetMapping("/editar/{id}")
     public String mostrarFormularioDeEditarCliente(@PathVariable Long id, Model model) {
         Cliente cliente = clienteService.obtenerClientePorId(id);
         model.addAttribute("cliente", cliente);
-        return "admin/formulario";
+        return "formulario-cliente";
     }
-
+    
+    @PostMapping("/editar/submit")
+	public String procesarFormularioEdicion(@ModelAttribute("cliente") Cliente cliente) {
+		clienteService.edit(cliente);
+		return "redirect:/";
+		
+	}
+    
     @GetMapping("/eliminar/{id}")
     public String eliminarCliente(@PathVariable Long id) {
         clienteService.eliminarCliente(id);
-        return "redirect:/admin";
+        return "redirect:/";
     }
 }
 

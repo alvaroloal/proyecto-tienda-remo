@@ -38,7 +38,7 @@ public class Usuario implements UserDetails{
 	private boolean admin;
 	
 	/*@OneToMany(mappedBy = "usuario")
-	private List<Producto> productos;s
+	private List<Producto> productos;
 	
 	@OneToMany(mappedBy = "usuario")
 	private List<Venta> ventas;*/
