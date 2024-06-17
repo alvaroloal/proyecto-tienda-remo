@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +16,7 @@ import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model.Usuar
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.UsuarioService;
 
 @Controller
-@RequestMapping("/admin/usuario")
+@RequestMapping("/user")
 public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
@@ -37,10 +39,25 @@ public class UsuarioController {
 		return "redirect:/admin/usuario/";
 	}
 	
-	
 	//endopoint del usuario id
 	//modelo para añadir el id de el usuario paa identfiicar al usuario que edita el producto
-	
+	@GetMapping("/me")
+	public String me() {
+
+		Usuario u = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		System.out.println(u.toString());
+
+		return "perfil";
+	}
+
+	@GetMapping("/me2")
+	public String me2(@AuthenticationPrincipal Usuario u) {
+
+		System.out.println(u.toString());
+
+		return "perfil";
+	}
 	
 	
 	
