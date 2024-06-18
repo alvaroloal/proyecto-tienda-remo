@@ -39,7 +39,7 @@ public class UsuarioController {
 		return "redirect:/admin/usuario/";
 	}
 	
-	//endopoint del usuario id
+	//endpoint del usuario id
 	//modelo para añadir el id de el usuario paraa identficar al usuario que edita el producto
 	
 	@GetMapping("/me")

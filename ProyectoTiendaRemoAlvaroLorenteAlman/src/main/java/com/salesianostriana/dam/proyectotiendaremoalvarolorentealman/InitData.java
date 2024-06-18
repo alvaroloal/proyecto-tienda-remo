@@ -1,4 +1,4 @@
-/*package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman;
+package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman;
 
 
 import java.util.List;
@@ -18,7 +18,7 @@ import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.repository.
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.repository.ClienteRepository;
 
 import lombok.RequiredArgsConstructor;
-
+/*
 @Component
 @RequiredArgsConstructor
 public class InitData {

@@ -32,7 +32,7 @@ import lombok.NoArgsConstructor;
 public class Usuario implements UserDetails{
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // al insertar un registro el id se autoincrementa
+	@GeneratedValue/*(strategy = GenerationType.IDENTITY)*/ // la estrategia del debe ser por defecto es decir vacia
 	private Long id;
 	
 	@Column(nullable = false, unique = true)
