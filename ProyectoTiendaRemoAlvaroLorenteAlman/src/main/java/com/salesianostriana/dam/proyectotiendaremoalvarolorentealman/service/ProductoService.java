@@ -51,9 +51,9 @@ public class ProductoService{
 	}
 	
 	public List<Producto> obtenerProductosAleatorios(int numero) {
-		// Obtenemos los ids de todos los productos
+		// obtener los ids de todos los productos
 		List<Long> listaIds = repositorioProducto.obtenerIds();
-		// Los desordenamos 
+		// desordenamos ids 
 		Collections.shuffle(listaIds);
 		// Nos quedamos con los N primeros, con N = numero
 		listaIds = listaIds.stream().limit(numero).collect(Collectors.toList());

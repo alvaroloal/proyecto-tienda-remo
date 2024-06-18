@@ -24,7 +24,8 @@ import lombok.RequiredArgsConstructor;
 public class SecurityConfig {
 	private final UserDetailsService userDetailsService;
 	private final PasswordEncoder passwordEncoder;
-
+	
+	
 	@Bean 
 	public DaoAuthenticationProvider daoAuthenticationProvider() {
 		DaoAuthenticationProvider provider = new DaoAuthenticationProvider();

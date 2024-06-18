@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman;
+/*package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman;
 
 
 import java.util.List;
@@ -74,4 +74,4 @@ public class InitData {
 		
 	}
 
-}
+}*/

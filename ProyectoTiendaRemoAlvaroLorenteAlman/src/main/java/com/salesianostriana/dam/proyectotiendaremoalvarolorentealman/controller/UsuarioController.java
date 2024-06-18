@@ -40,7 +40,8 @@ public class UsuarioController {
 	}
 	
 	//endopoint del usuario id
-	//modelo para añadir el id de el usuario paa identfiicar al usuario que edita el producto
+	//modelo para añadir el id de el usuario paraa identficar al usuario que edita el producto
+	
 	@GetMapping("/me")
 	public String me() {
 

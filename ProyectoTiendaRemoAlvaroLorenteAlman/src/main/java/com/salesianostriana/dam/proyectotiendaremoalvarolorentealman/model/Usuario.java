@@ -2,6 +2,7 @@ package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model;
 import java.util.Collection;
 import java.util.List;
 
+import org.hibernate.annotations.Cache;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -34,7 +35,7 @@ public class Usuario implements UserDetails{
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // al insertar un registro el id se autoincrementa
 	private Long id;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String username;
 
 	@Column(nullable = false)
