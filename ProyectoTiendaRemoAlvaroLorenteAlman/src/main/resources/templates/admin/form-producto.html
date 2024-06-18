@@ -104,18 +104,7 @@
 							placeholder="0.0" th:field="*{descuento}" />
 					</div>
 					
-<!-- Campo select:
 
-	* Damos el campo que iremos mostrando, en este caso th:field="*{categoria}"
-	* Los distintos option (opciones del select) que se mostrarán mediante un bucle each.
-	Se ha añadido un option más al comienzo para que se muestren 3 guiones --- en caso de que no haya ninguna (value="-1").
-	
-	El bucle recorre la lista de categorías y de cada una que va sacando, tendremos el id para "cogerlo" si 
-	se selecciona esta opción (esto no se ve) y se muestra el nombre de la categoría
-	
-	En la documentación de Thymeleaf viene cómo se escribe cada uno de los tipos de campos de formularios, 
-	es imposible explicarlos todos. 
- -->
 					<div class="form-group">
 						<label for="categoria">Categoría</label> <select
 							th:field="*{categoria}" class="form-control">

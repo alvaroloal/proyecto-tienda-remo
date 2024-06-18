@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	      body {
+	          font-family: Arial, sans-serif;
+	          background-color: #f9f9f9;
+	          margin: 0;
+	          padding: 0;
+	      }
+	
+	      #menu {
+	          background-color: #333;
+	          padding: 10px;
+	          text-align: center;
+	      }
+	
+	      #menu a {
+	          color: white;
+	          text-decoration: none;
+	          margin: 0 15px;
+	          font-weight: bold;
+	      }
+	
+	      #menu a:hover {
+	          text-decoration: underline;
+	      }
+	
+	      table {
+	          width: 90%;
+	          margin: 20px auto;
+	          border-collapse: collapse;
+	          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	      }
+	
+	      table thead {
+	          background-color:#e03444;
+	          color: white;
+	      }
+	
+	      table th, table td {
+	          padding: 10px;
+	          text-align: left;
+	          border: 1px solid #ddd;
+	      }
+	
+	      table tbody tr:nth-child(even) {
+	          background-color: #f2f2f2;
+	      }
+	
+	      table tbody tr:hover {
+	          background-color: #f1f1f1;
+	      }
+	
+	      table td a {
+	          color:#e03444;
+	          text-decoration: none;
+	      }
+	
+	      table td a:hover {
+	          text-decoration: underline;
+	      }
+	  </style>
+	
+</head>
+
+<body>
+	<div id="menu">
+		<a th:href="@{/}">Inicio</a> | <a th:href="@{/cliente/nuevo}">Nuevo cliente</a>
+	</div>
+	<br /><br />
+	<table border=1>
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Apellidos</th>
+				<th>Telefono</th>
+				<th>Direccion</th>
+				<th>Numero tarjeta</th>
+				<th>E-mail</th>
+				<th>Operaciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="cliente : ${lista}">
+				<td th:text="${cliente.nombre}">Nombre</td>
+				<td th:text="${cliente.apellidos}">Apellidos</td>
+				<td th:text="${cliente.telefono}">Telefono</td>
+				<td th:text="${cliente.direccion}">Direccion</td>
+				<td th:text="${cliente.numeroTarjeta}">Numero tarjeta</td>
+				<td th:text="${cliente.email}">Email</td>
+
+
+				<td>
+					<a href="#" th:href="@{/cliente/editar/{id}(id=${cliente.id})}">Editar</a> |
+					<a href="#" th:href="@{/cliente/eliminar/{id}(id=${cliente.id})}">Borrar</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>

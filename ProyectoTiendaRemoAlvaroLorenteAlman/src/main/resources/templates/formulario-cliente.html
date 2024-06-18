@@ -10,11 +10,11 @@
 
 <body>
 	<div id="menu">
-		<a th:href="@{/list}">Inicio</a> | <a th:href="@{/nuevo}">Nuevo
+		<a th:href="@{/list}">Inicio</a> | <a th:href="@{cliente/nuevo}">Nuevo
 			cliente</a>
 	</div>
 	<div id="formulario">
-		<form th:action="${cliente.id != 0} ? @{/editar/submit} : @{/nuevo/submit}" th:object="${cliente}" method="post">
+		<form th:action="${cliente.id != 0} ? @{cliente/editar/submit} : @{/nuevo/submit}" th:object="${cliente}" method="post">
 			<input th:if="${cliente.id != 0}" type="hidden" name="id" th:field="*{id}" />
 			<input type="text" name="nombre" th:field="*{nombre}" placeholder="Nombre" />
 			<input type="text" name="apellidos" th:field="*{apellidos}" placeholder="Apellidos" />

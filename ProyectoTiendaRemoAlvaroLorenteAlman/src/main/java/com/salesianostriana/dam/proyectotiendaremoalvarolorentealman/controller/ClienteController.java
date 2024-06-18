@@ -1,5 +1,7 @@
 package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,17 +20,25 @@ public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
-    /*
-    @GetMapping({"/", "/list"})
+    
+    @GetMapping({"/","/list"})
     public String listar(Model model) {
-        model.addAttribute("clientes", clienteService.listarClientes());
-        return "nuevo-cliente";
-    }*/
+        model.addAttribute("lista", clienteService.listarClientes());
+        return "list-cliente";
+    }
 
     @GetMapping("/nuevo")
     public String mostrarFormularioDeNuevoCliente(Model model) {
+    	//al generar el id da error
+    	/*
+    	List<Cliente> listaClientes =clienteService.listarClientes();
+    	//al id de los clientes que hay en la listaClientes le suma 1
+    	int id=listaClientes.size()+1;
+    	
+    	Cliente cliente = new Cliente();
+    	cliente.setId((long) id);*/
         model.addAttribute("cliente", new Cliente());
-        return "formulario-cliente";
+        return "form-crear-cliente";
     }
 
     @PostMapping("/nuevo/submit")
@@ -37,12 +47,13 @@ public class ClienteController {
         return "redirect:/";
     }
     
-
+   
+   
     @GetMapping("/editar/{id}")
     public String mostrarFormularioDeEditarCliente(@PathVariable Long id, Model model) {
         Cliente cliente = clienteService.obtenerClientePorId(id);
         model.addAttribute("cliente", cliente);
-        return "formulario-cliente";
+        return "form-editar-cliente";
     }
     
     @PostMapping("/editar/submit")
@@ -55,7 +66,7 @@ public class ClienteController {
     @GetMapping("/eliminar/{id}")
     public String eliminarCliente(@PathVariable Long id) {
         clienteService.eliminarCliente(id);
-        return "redirect:/";
+        return "redirect:/cliente/list";
     }
 }
 
