@@ -16,7 +16,7 @@ import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model.Usuar
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.UsuarioService;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/usuarios")
 public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;

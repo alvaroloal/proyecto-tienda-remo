@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,10 +16,13 @@ public class Categoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(nullable = false)
 	private String nombre;
 	
+	@Column(nullable = false)
 	private boolean destacada;
 	
+	@Column(nullable = false)
 	private String imagen;
 
 	public Categoria(String nombre, boolean destacada, String imagen) {

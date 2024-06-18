@@ -22,30 +22,8 @@ import lombok.RequiredArgsConstructor;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-	private final AuthenticationSuccessHandler authenticationSuccessHandler;
 	private final UserDetailsService userDetailsService;
 	private final PasswordEncoder passwordEncoder;
-
-	@Bean
-	InMemoryUserDetailsManager userDetailsService() {
-		UserDetails admin = User.builder()
-				.username("admin")
-				.password("{noop}admin")
-				.roles("ADMIN", "USER").build();
-		
-		UserDetails user = User.builder()
-				.username("user")
-				.password("{noop}1234")
-				.roles("USER").build();
-		
-		UserDetails user2 = User.builder()
-				.username("user2")
-				.password("{noop}5678")
-				.roles("OTHER").build();
-		
-		
-		return new InMemoryUserDetailsManager(user, admin, user2);
-	}
 
 	@Bean 
 	public DaoAuthenticationProvider daoAuthenticationProvider() {
@@ -57,25 +35,23 @@ public class SecurityConfig {
 
 	@Bean
 	public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
-
 		AuthenticationManagerBuilder authBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
-
 		return authBuilder.authenticationProvider(daoAuthenticationProvider()).build();
 
 	}
 	
-	
 	@Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(
-                        (authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**").permitAll()
+                        (authz) -> authz.requestMatchers("/css/**", "/js/**", "/img/**", "/h2-console/**", "/registro/", "/login/").permitAll()
                                 .requestMatchers("/admin/**").hasRole("ADMIN")
+								.requestMatchers("/categoria/**", "/productos/**", "/cliente/**", "/usuarios/**").hasAnyRole("ADMIN", "USER")
                                 .anyRequest().authenticated())
                 .formLogin((loginz) -> loginz
                         .loginPage("/login").permitAll())
                 .logout((logoutz) -> logoutz
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/login")
+                        .logoutSuccessUrl("/")
                         .permitAll());
 
         // Añadimos esto para poder seguir accediendo a la consola de H2

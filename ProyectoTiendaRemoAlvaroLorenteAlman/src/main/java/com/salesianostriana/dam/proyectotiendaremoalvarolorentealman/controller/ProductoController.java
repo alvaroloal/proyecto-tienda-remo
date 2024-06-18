@@ -15,14 +15,27 @@ import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.Pro
 
 
 @Controller
-@RequestMapping("/admin/producto")
+@RequestMapping("/productos")
 public class ProductoController {
+/* /productos
+				GET 	/ 				Ver todos
+				GET		/nuevo			Muestra formulario producto
+				POST	/nuevo			Envia formulario - redirije a productos
+				GET		/editar/{id}	Muestra formulario producto
+				GET		/borrar/{id}	Borra producto con id - redirije a productos
+ */
 
 	@Autowired
 	private ProductoService productoService;
 	
 	@Autowired
 	private CategoriaService categoriaService;
+
+	@GetMapping
+    public String listar(Model model) {
+        model.addAttribute("productos", productoService.findAll());
+        return "admin/productos/lista";
+    }
 
 	@GetMapping("/")
 	public String index(Model model) {
@@ -35,14 +48,14 @@ public class ProductoController {
 		
 		model.addAttribute("producto", new Producto());
 		model.addAttribute("categorias", categoriaService.findAll());
-		return "admin/form-producto";
+		return "form-producto";
 	}
 
 	@PostMapping("/nuevo/submit")
 	public String submitNuevoProducto(Producto producto, Model model) {
 
 		productoService.save(producto);
-		return "redirect:/admin/producto/";
+		return "redirect:/productos/";
 
 	}
 	
@@ -54,9 +67,9 @@ public class ProductoController {
 		if (producto != null) {
 			model.addAttribute("producto", producto);
 			model.addAttribute("categorias", categoriaService.findAll());
-			return "admin/form-producto";
+			return "/form-producto";
 		} else {
-			return "redirect:/admin/producto/";
+			return "redirect:/productos/";
 		}
 
 	}
@@ -70,15 +83,10 @@ public class ProductoController {
 			productoService.delete(producto);
 		}
 
-		return "redirect:/admin/producto/";
+		return "redirect:/productos/";
 
 	}
 	
-	@GetMapping
-    public String listar(Model model) {
-        model.addAttribute("productos", productoService.findAll());
-        return "admin/productos/lista";
-    }
 
     @GetMapping("/nuevoProducto")
     public String mostrarFormularioDeNuevoProducto(Model model) {

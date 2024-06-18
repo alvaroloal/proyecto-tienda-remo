@@ -13,6 +13,7 @@ import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model.Clien
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.ClienteService;
 
 @Controller
+@RequestMapping("/cliente")
 public class ClienteController {
 
     @Autowired

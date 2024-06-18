@@ -12,12 +12,6 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<link href="../static/css/style-productos.css" th:href="@{/css/style-productos.css}" rel="stylesheet" />
 
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -71,13 +65,7 @@
 								</div>
 								<div class="info">
 									<div class="row">
-										
-<!-- 
-	Uso de expresión de #Strings para cortar la cantidad de caracteres que se muestran, 
-	al ser el nombre de nuestro producto muy largo, 
-	se acorta a 65 caracteres como máximo (solo para mostrarlo) mediante el método
-	abbreviate al que se le puede dar el máximo de caracteres que queremos mostrar 
--->
+									
 										<div class="price col-md-12">
 											<h5 th:text="${#strings.abbreviate(producto.nombre,65)}">Nombre</h5>
 											<div class="price-text-color">

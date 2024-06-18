@@ -1,7 +1,6 @@
 package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model.Producto;
-import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model.Usuario;
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.CategoriaService;
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.ProductoService;
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.UsuarioService;
@@ -36,6 +34,7 @@ public class MainController {
 
 	}
 	
+
 	@GetMapping("/categorias")
 	public String index(@RequestParam(name="idCategoria", required=false) Long idCategoria, Model model) {		
 		

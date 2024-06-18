@@ -6,6 +6,7 @@ import java.util.Set;
 
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -33,16 +34,23 @@ public class Producto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(nullable = false)
 	private String nombre;
-	 
+	
+	@Column(nullable = false)
 	private String descripcion;
 	
+	@Column(nullable = false)
 	private float pvp;
+
+	@Column(nullable = false)
 	private float descuento;
+
+	@Column(nullable = false)
 	private String imagen;
 	
-	@ManyToOne
-	private Usuario usuario;
+	//@ManyToOne
+	//private Usuario usuario;
 	
 	@ManyToOne
 	private Categoria categoria;

@@ -14,7 +14,7 @@ import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.Cat
 import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.service.ProductoService;
 
 @Controller
-@RequestMapping("/admin/categoria")
+@RequestMapping("/categoria")
 public class CategoriaController {
 
 	@Autowired
