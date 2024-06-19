@@ -3,6 +3,9 @@ package com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -23,6 +26,7 @@ import lombok.ToString;
 @Data
 public class Cliente extends Usuario {
 
+	
 	@Column(nullable = false)
 	private String nombre;
 

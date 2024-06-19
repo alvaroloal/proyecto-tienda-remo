@@ -44,7 +44,7 @@
 					<li class="navbar-item">
 						<a th:href="@{/cliente/list}" class="navbar-link" data-nav-link>
 							<button type="button" class="btn btn-danger fs-2 me-3">
-								Acceso
+								Acceso admin
 							</button>
 						</a>
 					</li>
@@ -160,7 +160,7 @@
 					<div class="card-body">
 						<h5 class="card-title fs-1">Orza y timón del bote</h5>
 						<p class="card-text fs-3">Esta parte del barco sirve para controlar la dirección.</p>
-						<a href="#" class="btn btn-primary">Ver más</a>
+						<a th:href="@{/categorias}" class="btn btn-primary">COMPRAR</a>
 					</div>
 				</div>
 			</div>
@@ -173,7 +173,7 @@
 						<p class="card-text fs-3">En el carro es donde nos sentamos y este va sobre unas vías para su
 							correcto
 							funcionamiento.</p>
-						<a href="#" class="btn btn-primary">Ver más</a>
+						
 					</div>
 				</div>
 			</div>
@@ -184,7 +184,7 @@
 					<div class="card-body">
 						<h5 class="card-title fs-1">Casco y cortaolas</h5>
 						<p class="card-text fs-3">Es la estructura del bote y proporciona estabilidad.</p>
-						<a href="#" class="btn btn-primary">Ver más</a>
+						
 					</div>
 				</div>
 			</div>
@@ -200,7 +200,7 @@
 					<img th:src="@{/img/1x.jpg}" class="card-img-top" alt="imagen">
 					<div class="card-body">
 						<h5 class="card-title fs-1">1x Skiff</h5>
-						<a href="#" class="btn btn-primary">Ver más</a>
+						<a th:href="@{/categorias}" class="btn btn-primary">COMPRAR</a>
 					</div>
 				</div>
 			</div>
@@ -259,7 +259,7 @@
 					<img th:src="@{/img/termica.png}" class="card-img-top" alt="imagen">
 					<div class="card-body">
 						<h5 class="card-title fs-1">Camiseta térmica</h5>
-						<a href="#" class="btn btn-primary">Ver más</a>
+						<a th:href="@{/categorias}" class="btn btn-primary">COMPRAR</a>
 					</div>
 				</div>
 			</div>
@@ -285,85 +285,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- 
-	<div class="container">
-		<h2 class="mt-4 mb-4">Formulario</h2>
-		<form>
-
-			<div class="mb-3">
-				<label for="nombre" class="form-label">Nombre completo</label>
-				<input type="text" class="form-control" id="nombre" placeholder="">
-			</div>
-
-			<div class="mb-3">
-				<label for="email" class="form-label">Correo Electrónico</label>
-				<input type="email" class="form-control" id="email" placeholder="">
-			</div>
-			<div class="mb-3">
-				<label for="telefono" class="form-label">Número de teléfono</label>
-				<input type="tel" class="form-control" id="telefono">
-			</div>
-			<div class="mb-3">
-				<label for="producto" class="form-label">Producto preferido</label>
-				<select class="form-select" id="producto">
-					<option value="componentes">Componentes</option>
-					<option value="futbol">Barcos</option>
-					<option value="baloncesto">Ropa</option>
-				</select>
-			</div>
-			<div class="mb-3">
-				<label for="comentario" class="form-label">Comentarios sobre la web</label>
-				<textarea class="form-control" id="comentario" rows="3"
-					placeholder="Escribe tus comentarios"></textarea>
-			</div>
-
-			<div class="mb-3">
-				<legend class="form-label">¿Conocías nuestra tienda?</legend>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="practica_deporte" id="si">
-					<label class="form-check-label" for="si">Sí</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="practica_deporte" id="no">
-					<label class="form-check-label" for="no">No</label>
-				</div>
-			</div>
-			<div class="mb-3">
-				<legend class="form-label">¿Crees que en Sevilla es conocido el remo?</legend>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="practica_deporte" id="si">
-					<label class="form-check-label" for="si">Sí</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="practica_deporte" id="no">
-					<label class="form-check-label" for="no">No</label>
-				</div>
-			</div>
-			<div class="mb-3">
-				<legend class="form-label">Selecciona el tipo de productos que deberiamos añadir</legend>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="camisetas" id="interes_camisetas">
-					<label class="form-check-label" for="interes_camisetas">Camisetas</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="calzonas" id="interes_calzonas">
-					<label class="form-check-label" for="interes_calzonas">Calzonas</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="accesorios" id="interes_baloncesto">
-					<label class="form-check-label" for="interes_baloncesto">Accesorios</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="suplementacion" id="interes_suplementacion">
-					<label class="form-check-label" for="interes_suplementacion">Suplementación deportiva</label>
-				</div>
-			</div>
-			<button type="submit" class="btn btn-primary">Enviar</button>
-		</form>
-
-	</div>	-->
-
-
 	<div class="container mt-5">
 		<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
 			aria-controls="offcanvasExample">Menú lateral</button>
@@ -411,7 +332,7 @@
 							<li><a href="#productos" class="text-light fs-2">Productos</a></li>
 							<li><a href="#componentes" class="text-light fs-2">Componentes</a></li>
 							<li><a href="#botes" class="text-light fs-2">Barcos</a></li>
-							<li><a href="" class="text-light fs-2">Inicio</a></li>
+							<li><a href="#navbar" class="text-light fs-2">Inicio</a></li>
 						</ul>
 					</div>
 				</div>
