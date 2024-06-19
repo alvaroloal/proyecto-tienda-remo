@@ -49,11 +49,11 @@ Crear, editar o eliminar categorías
 
 
  **Gestión de productos**  
-Cada producto incluye la informacion detallada de cada uno así como su nombre, descripcion, precio, imagen y su identificador.
-Los productos estarán separados por categoría.
+- Cada producto incluye la informacion detallada de cada uno así como su nombre, descripcion, precio, imagen y su identificador.
+- Los productos estarán separados por categoría.
 
 **Gestión de categorias** 
-El administrador puede añadir, eliminar o modificar una categoría.
-Las categorías que podemos encontrar son : Barcos, componentes, o ropa deportiva.
+- El administrador puede añadir, eliminar o modificar una categoría.
+- Las categorías que podemos encontrar son : Barcos, componentes, o ropa deportiva.
 
 
