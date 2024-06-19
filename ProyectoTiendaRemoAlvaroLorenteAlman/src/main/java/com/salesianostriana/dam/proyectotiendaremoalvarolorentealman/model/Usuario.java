@@ -14,6 +14,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,8 +33,10 @@ import lombok.NoArgsConstructor;
 public class Usuario implements UserDetails{
 	
 	@Id
-	@GeneratedValue/*(strategy = GenerationType.IDENTITY)*/ // la estrategia del debe ser por defecto es decir vacia
-	private Long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario_seq")
+    @SequenceGenerator(name = "usuario_seq", sequenceName = "usuario_seq", allocationSize = 1, initialValue = 1)
+    private Long id;
+	
 	
 	@Column(nullable = false, unique = true)
 	private String username;
