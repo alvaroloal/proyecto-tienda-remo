@@ -47,11 +47,7 @@ public class Usuario implements UserDetails{
 	@Column(nullable = false)
 	private boolean admin;
 	
-	/*@OneToMany(mappedBy = "usuario")
-	private List<Producto> productos;
-	
-	@OneToMany(mappedBy = "usuario")
-	private List<Venta> ventas;*/
+
 
 	public Usuario(String username, String password, boolean admin) {
 		this.username = username;

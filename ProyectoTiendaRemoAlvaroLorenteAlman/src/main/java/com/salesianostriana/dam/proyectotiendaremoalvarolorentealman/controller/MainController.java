@@ -59,7 +59,6 @@ public class MainController {
 	@GetMapping("/product/{id}")
 	public String showDetails(@PathVariable("id") Long id, Model model) {
 		
-		//buscar producto por id
 		Producto p = productoService.findById(id);
 		
 		if (p != null) {

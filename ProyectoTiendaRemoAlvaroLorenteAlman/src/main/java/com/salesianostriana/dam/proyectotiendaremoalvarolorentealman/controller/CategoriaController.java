@@ -27,20 +27,20 @@ public class CategoriaController {
 	public String index(Model model) {
 
 		model.addAttribute("categorias", categoriaService.findAll());
-		return "admin/list-categoria";
+		return "lista-categoria";
 	}
 
 	@GetMapping("/nueva")
 	public String nuevaCategoria(Model model) {
 		model.addAttribute("categoria", new Categoria());
-		return "admin/form-categoria";
+		return "form-categoria";
 	}
 
 	@PostMapping("/nueva/submit")
 	public String submitNuevaCategoria(@ModelAttribute("categoria") Categoria categoria, Model model) {
 
 		categoriaService.save(categoria);
-		return "redirect:/admin/categoria/";
+		return "redirect:/categoria/";
 	}
 
 	@GetMapping("/editar/{id}")
@@ -50,9 +50,9 @@ public class CategoriaController {
 
 		if (categoria != null) {
 			model.addAttribute("categoria", categoria);
-			return "admin/form-categoria";
+			return "form-categoria";
 		} else {
-			return "redirect:/admin/categoria/";
+			return "redirect:/categoria/";
 		}
 
 	}
@@ -67,12 +67,11 @@ public class CategoriaController {
 			if (productoService.numeroProductosCategoria(categoria) == 0) {
 				categoriaService.delete(categoria);
 			} else {
-				return "redirect:/admin/categoria/?error=true";
+				return "redirect:/categoria/?error=true";
 			}
-
 		}
 
-		return "redirect:/admin/categoria/";
+		return "redirect:/categoria/";
 
 	}
 

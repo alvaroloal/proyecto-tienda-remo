@@ -18,6 +18,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,9 +30,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name="producto")
 public class Producto {
-	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "producto_seq")
+    @SequenceGenerator(name = "producto_seq", sequenceName = "producto_seq", allocationSize = 1, initialValue = 1)
 	private Long id;
 	
 	@Column(nullable = false)

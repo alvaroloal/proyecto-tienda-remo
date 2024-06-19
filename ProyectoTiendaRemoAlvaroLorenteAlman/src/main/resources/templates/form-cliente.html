@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TodoRemo</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<style>
+		body {
+			padding-top: 70px;
+		}
+
+		.navbar {
+			border-radius: 0;
+		}
+
+		.form-container {
+			margin-top: 20px;
+			background-color: #f9f9f9;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+					aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">TodoRemo</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+				<div class="form-container">
+					<form class="form-horizontal" id="clienteForm" method="post" action="#"
+						th:action="@{/cliente/nuevo/submit}" th:object="${cliente}">
+						<h1 class="text-center">
+							<span th:text="${cliente.id} ? 'Editar' : 'Nuevo'"></span> Cliente
+						</h1>
+						<input type="hidden" th:field="*{id}" id="id" />
+
+						<div class="form-group">
+							<label for="nombre" class="col-sm-3 control-label">Nombre</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="nombre" placeholder="Nombre"
+									th:field="*{nombre}" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="apellidos" class="col-sm-3 control-label">Apellidos</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="apellidos" placeholder="Apellidos"
+									th:field="*{apellidos}" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="username" class="col-sm-3 control-label">Nombre de usuario</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="username" placeholder="Nombre de usuario"
+									th:field="*{username}" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="col-sm-3 control-label">Contraseña</label>
+							<div class="col-sm-9">
+								<input type="password" class="form-control" id="password" placeholder="Contraseña"
+									th:field="*{password}" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="telefono" class="col-sm-3 control-label">Teléfono</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="telefono" placeholder="Teléfono"
+									th:field="*{telefono}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="direccion" class="col-sm-3 control-label">Dirección</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="direccion" placeholder="Dirección"
+									th:field="*{direccion}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="numeroTarjeta" class="col-sm-3 control-label">Número de tarjeta</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="numeroTarjeta"
+									placeholder="Número de tarjeta" th:field="*{numeroTarjeta}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="col-sm-3 control-label">Email</label>
+							<div class="col-sm-9">
+								<input type="email" class="form-control" id="email" placeholder="Email"
+									th:field="*{email}" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-offset-3 col-sm-9">
+								<button type="submit" class="btn btn-primary"
+									onclick="return validateForm()">Enviar</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script src="../static/js/validar-form-cliente.js"></script>
+
+</body>
+
+</html>

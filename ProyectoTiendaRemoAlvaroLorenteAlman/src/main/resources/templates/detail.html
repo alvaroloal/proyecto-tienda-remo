@@ -72,7 +72,7 @@
 						</div>
 						<th:block th:if="${producto.descuento > 0}">
 							<div class="col-md-3 pvp-no-discounted">
-								<span th:text="${#numbers.formatCurrency(producto.pvp)}">120€</span>
+								<span th:text="${#numbers.formatDecimal(producto.pvp,0,2)}">120€</span>
 							</div>
 							
 
