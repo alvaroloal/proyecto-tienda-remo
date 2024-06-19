@@ -11,14 +11,10 @@
 Se desea implementar una aplicación que gestione los productos de una tienda, así como la gestion de los usuarios del sistema.
 
 ## Funcionamiento
-Un usuario accede a la aplicación y puede elegir entre hacer un envío o realizar el seguimiento de un envío ya realizado.  
+- Un usuario accede a la aplicación y puede consultar la lista de productos de la tienda.
 
-Para consultar los detalles de un envío ya realizado, no es necesario ser cliente dado de alta en el sistema. Sin embargo, para poder realizar un envío hay que darse de alta como cliente para poder elegir los detalles del envío, así como poder descargar la factura correspondiente.  
+- Para ver los productos, no es necesario ser cliente dado de alta en el sistema. Sin embargo, para poder realizar una compra hay que darse de alta como cliente.
 
-Los clientes podrán valorar y dejar comentarios sobre el servicio ofrecido para que el administrador pueda incluir mejoras en la aplicación. 
-Además, el administrador tendrá un panel de control para poder realizar operaciones sobre los usuarios, y además, registrar nuevos usuarios.  
-
-Por último, el administrador desde el panel podrá generar un reporte del estado actual de la empresa en el que se detallen el número de envíos gestionados, la puntuación media del servicio y los ingresos totales en el sistema.
 
 ## Diagrama analisis
 ![diagrama del proyecto](diagrama/diagramaAnalisis.png)
