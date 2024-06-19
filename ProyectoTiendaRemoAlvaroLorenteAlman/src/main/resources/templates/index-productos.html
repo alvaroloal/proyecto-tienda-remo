@@ -73,12 +73,12 @@
 											<h5 th:text="${#strings.abbreviate(producto.nombre,65)}">Nombre</h5>
 											<div class="price-text-color">
 												<span th:text="${producto.descuento == 0} 
-															? ${#numbers.formatCurrency(producto.pvp)} 
-															: ${#numbers.formatCurrency(producto.pvp * (1 - producto.descuento))}">10</span>
+															? ${#numbers.formatDecimal(producto.pvp,0,2)}+' €' 
+															: ${#numbers.formatDecimal(producto.pvp * (1 - producto.descuento),0,2)+' €'}">10</span>
 
 												<th:block th:if="${producto.descuento > 0}">
 													<span class="price-original"
-														th:text="${#numbers.formatCurrency(producto.pvp)}"></span>
+														th:text="${#numbers.formatDecimal(producto.pvp,0,2)+' €'}"></span>
 													<span class="label label-danger"
 														th:text=${#numbers.formatPercent(producto.descuento,1,0)}></span>
 												</th:block>

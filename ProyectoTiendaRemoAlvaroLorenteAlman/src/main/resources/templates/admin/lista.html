@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Lista de Productos</title>
+	<title>Lista de Productos</title>
 </head>
+
 <body>
-    <h1>Lista de Productos</h1>
-    <a th:href="@{/admin/nuevo}">Agregar Nuevo Producto</a>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="producto : ${productos}">
-                <td th:text="${producto.id}">1</td>
-                <td th:text="${producto.nombre}">Producto 1</td>
-                <td th:text="${producto.descripcion}">Descripción 1</td>
-                <td th:text="${producto.precio}">100</td>
-                <td>
-                    <a th:href="@{/admin/editar/{id}(id=${producto.id})}">Editar</a>
-                    <a th:href="@{/admin/eliminar/{id}(id=${producto.id})}">Eliminar</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+	<h1>Lista de Productos</h1>
+	<a th:href="@{/admin/nuevo}">Agregar Nuevo Producto</a>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Descripción</th>
+				<th>Precio</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="producto : ${productos}">
+				<td th:text="${producto.id}">1</td>
+				<td th:text="${producto.nombre}">Producto 1</td>
+				<td th:text="${producto.descripcion}">Descripción 1</td>
+				<td th:text="${producto.precio}">100</td>
+				<td>
+					<a th:href="@{/admin/editar/{id}(id=${producto.id})}">Editar</a>
+					<a th:href="@{/admin/eliminar/{id}(id=${producto.id})}">Eliminar</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </body>
+
 </html>
