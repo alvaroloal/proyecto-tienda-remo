@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title></title>
-
-	<!-- Bootstrap -->
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<link href="../static/css/style-productos.css" th:href="@{/css/style-productos.css}" rel="stylesheet" />
-
-
+<head th:replace="~{fragmentos/head::head}">
+	<meta charset="UTF-8">
+	<title>Productos</title>
 </head>
 
 <body>
@@ -27,32 +18,37 @@
 				</button>
 				<a class="navbar-brand" href="/">TodoRemo</a>
 			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-							aria-haspopup="true" aria-expanded="false">Opciones <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a th:href="@{/producto}">Gestión de
-									productos</a></li>
-							<li><a th:href="@{/cliente/}">Gestión de
-																clientes</a></li>
-							<li><a  th:href="@{/categoria/}">Gestión de
-									categorías</a>
-							</li>																		
-						</ul>
-					</li>
-				</ul>
-			</div>
+			
 		</div>
 	</nav>
 
 	<div class="container-fluid">
 		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<a th:href="@{/}" class="btn btn-primary">Inicio</a>
+				<a href="#" th:href="@{/logout}" class="btn btn-danger">Salir</a>
+				
+							<h3>Categorías</h3>
+							<ul class="nav nav-sidebar">
+								<li th:each="categoria : ${categorias}"><a href="#" th:href="@{/producto/ver/todos?(idCategoria=${categoria.id})}"
+										th:text="${categoria.nombre}">categoría</a></li>
+							</ul>
+							<h3>Pedido</h3>
+							<ul class="nav nav-sidebar">
+								<li th:each="articulo : ${articulos}">
+									<a href="#" th:href="@{/producto/ver/{id}(id=${articulo.id})}" th:text="${articulo.nombre}">articulo</a>
+								</li>
+							</ul>
+							<a th:href="@{/producto/pedido/ver}"class="btn btn-primary">Ver total</a>
+						
+						</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<h1>TodoRemo</h1>
+				
 				<div class="row">
+					
+					<h1>TodoRemo</h1>
 					<div class="col-sm-3" th:each="producto : ${productos}">
-						<a href="#" th:href="@{/product/{id}(id=${producto.id})}">
+						<a href="#" th:href="@{/producto/ver/{id}(id=${producto.id})}">
 							<div class="col-item">
 								<div class="photo">
 									<img src="http://placehold.it/350x260"
@@ -89,6 +85,11 @@
 												<span th:each="i:${#numbers.sequence(1,5)}" class="glyphicon"
 													th:classappend="${i <= producto.getPuntuacionMedia()} ? 'glyphicon-star': 'glyphicon-star-empty'"></span>
 											</div>
+											<div class="rating col-md-4">
+												<a th:href="@{/producto/pedido/aniadir/{id}(id=${producto.id})}"class="btn btn-primary">Añadir al pedido</a>
+												
+											</div>
+											
 										</div>
 									</div>
 								</div>

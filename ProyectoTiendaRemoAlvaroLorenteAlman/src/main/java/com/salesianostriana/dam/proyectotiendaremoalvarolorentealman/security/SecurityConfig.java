@@ -45,17 +45,18 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(
                         (authz) -> authz.requestMatchers("/css/**", "/js/**", "/img/**", "/h2-console/**", "/registro/", "/login/").permitAll()
-                                .requestMatchers("/admin/**").hasRole("ADMIN")
-								.requestMatchers("/categoria/**", "/productos/**", "/cliente/**", "/usuarios/**").hasAnyRole("ADMIN", "USER")
+								.requestMatchers("/categoria/**", "/cliente/**", "/admin/**").hasRole("ADMIN")
+								.requestMatchers("/producto/**").hasAnyRole("ADMIN", "USER")
                                 .anyRequest().authenticated())
                 .formLogin((loginz) -> loginz
-                        .loginPage("/login").permitAll())
+                        .loginPage("/login").permitAll()
+                        .failureUrl("/login?error=true"))
                 .logout((logoutz) -> logoutz
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/")
                         .permitAll());
 
-        // Añadimos esto para poder seguir accediendo a la consola de H2
+        
         http.csrf(csrfz -> csrfz.disable());
         http.headers(headersz -> headersz
                 .frameOptions(frameOptionsz -> frameOptionsz.disable()));

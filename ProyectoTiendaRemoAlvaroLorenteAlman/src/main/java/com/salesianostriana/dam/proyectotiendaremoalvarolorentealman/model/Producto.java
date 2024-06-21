@@ -50,17 +50,13 @@ public class Producto {
 	@Column(nullable = false)
 	private String imagen;
 	
-	//@ManyToOne
-	//private Usuario usuario;
-	
 	@ManyToOne
 	private Categoria categoria;
 	
 	@OneToMany(mappedBy="producto", cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
 	private Set<Puntuacion> puntuaciones = new HashSet<Puntuacion>();
 	
-	/*@ManyToMany(mappedBy = "producto")
-	private List<Venta> ventas;*/
+	
 
 	
 	public Producto(String nombre, String descripcion, float pvp, float descuento, String imagen, Categoria categoria) {
@@ -73,7 +69,7 @@ public class Producto {
 	}
 	
 	
-	/*metodos helper*/
+	
 	public void addPuntuacion(Puntuacion puntuacion) {
 		this.puntuaciones.add(puntuacion);
 		puntuacion.setProducto(this);

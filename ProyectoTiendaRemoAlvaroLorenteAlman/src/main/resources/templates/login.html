@@ -1,43 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Iniciar Sesión</title>
-	<!-- Bootstrap CSS -->
-	    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
-		<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
-		   <style>
-		       body {
-		           background-color: #f8f9fa;
-		           display: flex;
-		           justify-content: center;
-		           align-items: center;
-		           height: 100vh;
-		           margin: 0;
-				   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-		       }
-		       .card {
-		           border: 1px solid #e3e6f0;
-		           
-		           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-		       }
-		       .card-header {
-		           background-color:#e03444;;
-		           color: black;
-		           text-align: center;
-		       }
-		       .btn-primary {
-		           background-color: #e03444;
-		           border: none;
-		       }
-		       .btn-primary:hover {
-		           background-color: #e03444;
-		       }
-		       .form-control:focus {
-		           border-color: 	#e03444;
-		           box-shadow: 0 0 5px #e03444(0, 123, 255, 0.5);
-		       }
-		   </style>
-</head>
+	<head th:replace="~{fragmentos/head::head}">
+		<meta charset="UTF-8">
+		<title>Iniciar sesión</title>
+	</head>
 <body class="bg-light">
     <div class="container">
         <div class="row justify-content-center mt-5">
@@ -61,6 +27,10 @@
                                 <button type="submit" class="btn btn-primary">Enviar</button>
                             </div>
                         </form>
+						<div th:if="${param.error}">
+							<p style="color:red;">Usuario no existe o no es administrador.
+							</p>
+						</div>
                     </div>
                 </div>
             </div>

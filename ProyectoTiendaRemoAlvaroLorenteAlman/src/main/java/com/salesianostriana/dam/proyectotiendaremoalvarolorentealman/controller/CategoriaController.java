@@ -59,7 +59,7 @@ public class CategoriaController {
 
 	@GetMapping("/borrar/{id}")
 	public String borrarCategoria(@PathVariable("id") Long id, Model model) {
-
+		
 		Categoria categoria = categoriaService.findById(id);
 
 		if (categoria != null) {

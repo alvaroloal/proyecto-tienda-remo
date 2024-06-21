@@ -12,27 +12,27 @@ import com.salesianostriana.dam.proyectotiendaremoalvarolorentealman.repository.
 public class CategoriaService{
 	
 	@Autowired
-	private CategoriaRepository repositorio;
+	private CategoriaRepository repositorioCategoria;
 	
 	public List<Categoria> findAll() {
-		return repositorio.findAll();
+		return repositorioCategoria.findAll();
 	}	
 	
 	public List<Categoria> findDestacadas() {
-		return repositorio.findDestacadas();
+		return repositorioCategoria.findDestacadas();
 	}
 	
 	public Categoria save(Categoria categoria) {
-		return repositorio.save(categoria);
+		return repositorioCategoria.save(categoria);
 	}
 	
 	public Categoria findById(Long id) {
-		return repositorio.findById(id).orElse(null);
+		return repositorioCategoria.findById(id).orElse(null);
 	}
 	
 	public Categoria delete(Categoria categoria) {
 		Categoria result = findById(categoria.getId());
-		repositorio.delete(result);
+		repositorioCategoria.delete(result);
 		return result;
 	}
 

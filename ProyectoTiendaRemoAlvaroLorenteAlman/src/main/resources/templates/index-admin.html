@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragmentos/head::head}">
+	<meta charset="UTF-8">
+	<title>Panel administrador</title>
+</head>
+
+<body>
+	<div id="menu">
+		<a th:href="@{/}"class="btn btn-primary">Inicio</a> 
+		<a href="#" th:href="@{/logout}" class="btn btn-danger">Salir</a>
+	</div>			
+	<br /><br />
+	<table border=1>
+		<thead>
+			<tr>
+				<th>Panel de administración</th>
+			</tr>
+			
+		</thead>
+		<tbody>
+			<tr>
+			<td>
+				<a class="btn btn-primary" th:href="@{/cliente/}">Gestión de clientes</a>
+			</td>
+			</tr>
+				
+			<tr>
+				<td>
+					<a class="btn btn-primary" th:href="@{/producto}">Gestión de productos</a></tr>	
+				</td>
+			<tr>
+				<td>
+					<a class="btn btn-primary" th:href="@{/categoria/}">Gestión de categorías</a></tr>
+				</td>
+		</tbody>
+	</table>
+</body>
+
+</html>

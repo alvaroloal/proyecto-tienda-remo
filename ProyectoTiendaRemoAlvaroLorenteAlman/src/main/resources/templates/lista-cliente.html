@@ -1,78 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
+<head th:replace="~{fragmentos/head::head}">
 	<meta charset="UTF-8">
-	<title></title>
-	<style>
-	      body {
-	          font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-	          background-color: #f9f9f9;
-	          margin: 0;
-	          padding: 0;
-	      }
-			
-	      #menu {
-	          background-color: rgb(51, 52, 50);
-	          padding: 10px;
-	          text-align: left;
-			  border: solid;
-	      }
-	
-	      #menu a {
-	          color: white;
-	          text-decoration: none;
-	          margin: 0 15px;
-	          font-weight: bold;
-	      }
-	
-	      #menu a:hover {
-	          text-decoration: underline;
-	      }
-	
-	      table {
-	          width: 90%;
-	          margin: 20px auto;
-	          border-collapse: collapse;
-	          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-	      }
-	
-	      table thead {
-	          background-color:#e03444;
-	          color: white;
-	      }
-	
-	      table th, table td {
-	          padding: 10px;
-	          text-align: left;
-	          border: 1px solid #ddd;
-	      }
-	
-	      table tbody tr:nth-child(even) {
-	          background-color: #f2f2f2;
-	      }
-	
-	      table tbody tr:hover {
-	          background-color: #f1f1f1;
-	      }
-	
-	      table td a {
-	          color:#e03444;
-	          text-decoration: none;
-	      }
-	
-	      table td a:hover {
-	          text-decoration: underline;
-	      }
-	  </style>
-	
+	<title>Gestión clientes</title>
 </head>
 
 <body>
 	<div id="menu">
-		<a th:href="@{/}">Inicio</a> | 
+		<a th:href="@{/}" class="btn btn-primary">Inicio</a>
+		<a href="#" th:href="@{/logout}" class="btn btn-danger">Salir</a>
 		<a th:href="@{/cliente/nuevo}">Nuevo cliente</a>
-	</div>
+		<a th:href="@{/producto}">Gestión de productos</a>		
+		<a  th:href="@{/categoria/}">Gestión de categorías</a>
+	</div>			
 	<br /><br />
 	<table border=1>
 		<thead>
@@ -97,8 +38,8 @@
 
 
 				<td>
-					<a href="#" th:href="@{/cliente/editar/{id}(id=${cliente.id})}">Editar</a> |
-					<a href="#" th:href="@{/cliente/eliminar/{id}(id=${cliente.id})}">Borrar</a>
+					<a href="#" th:href="@{/cliente/editar/{id}(id=${cliente.id})}" class="btn btn-primary">Editar</a> |
+					<a href="#" th:href="@{/cliente/eliminar/{id}(id=${cliente.id})}"class="btn btn-danger">Borrar</a>
 				</td>
 			</tr>
 		</tbody>

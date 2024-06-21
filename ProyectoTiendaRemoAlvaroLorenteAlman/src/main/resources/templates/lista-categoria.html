@@ -1,156 +1,75 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title></title>
-
-	<!-- Bootstrap -->
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<link href="../../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
-
-	<style>
-				      body {
-				          font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-				          background-color: #f9f9f9;
-				          margin: 0;
-				          padding: 0;
-				      }
-						
-				      #menu {
-				          background-color: rgb(51, 52, 50);
-				          padding: 10px;
-				          text-align: left;
-						  border: solid;
-				      }
-				
-				      #menu a {
-				          color: white;
-				          text-decoration: none;
-				          margin: 0 15px;
-				          font-weight: bold;
-				      }
-				
-				      #menu a:hover {
-				          text-decoration: underline;
-				      }
-				
-				      table {
-				          width: 90%;
-				          margin: 20px auto;
-				          border-collapse: collapse;
-				          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-				      }
-				
-				      table thead {
-				          background-color:#e03444;
-				          color: white;
-				      }
-				
-				      table th, table td {
-				          padding: 10px;
-				          text-align: left;
-				          border: 1px solid #ddd;
-				      }
-				
-				      table tbody tr:nth-child(even) {
-				          background-color: #f2f2f2;
-				      }
-				
-				      table tbody tr:hover {
-				          background-color: #f1f1f1;
-				      }
-				
-				      table td a {
-				          color:#e03444;
-				          text-decoration: none;
-				      }
-				
-				      table td a:hover {
-				          text-decoration: underline;
-				      }
-				  </style>
+<head th:replace="~{fragmentos/head::head}">
+	<meta charset="UTF-8">
+	<title>Gestión categorias</title>
 </head>
 
 <body>
-
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-					aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="/">TodoRemo</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-							aria-haspopup="true" aria-expanded="false">Opciones <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a th:href="@{/producto}">Gestión de
-									productos</a></li>
-							<li><a th:href="@{/cliente/}">Gestión de
-																clientes</a></li>
-							<li><a  th:href="@{/categoria/}">Gestión de
-									categorías</a>
-							</li>																		
-						</ul>
-					</li>
-				</ul>
-			</div>
-
+	<div id="menu">
+			<a th:href="@{/}" class="btn btn-primary">Inicio</a>
+			<a href="#" th:href="@{/logout}" class="btn btn-danger">Salir</a>
+			<a th:href="@{/categoria/nueva}">Nueva categoria</a>
+			<a th:href="@{/producto}">Gestión de productos</a>		
+			<a th:href="@{/cliente/}">Gestión de clientes</a>
 		</div>
-	</nav>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-offset-2 col-md-8">
-				<div class="alert alert-warning alert-dismissible" role="alert" th:if="${param.error}">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<span>No se puede borrar una categoría que tiene asociados
-						productos</span>
-				</div>
-				<div id="menu">
-							<a th:href="@{/}">Inicio</a> | 
-							<a th:href="@{categoria/nueva}">Nueva categoria</a>
-						</div><br><br>
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Imagen</th>
-							<th>Nombre</th>
-							<th>Operaciones</th>
-						</tr>
-					</thead>
-					<tbody>
-
-
-						<tr th:each="categoria : ${categorias}">
-							<td><img th:src="${not (#strings.isEmpty(categoria.imagen))} ? ${categoria.imagen} : 'http://placehold.it/48x48'"
-									class="img-responsive icono-categoria" alt="imagen" /></td>
-							<td th:text="${categoria.nombre}"></td>
-							<td class="operaciones"><a href="#"
-									th:href="@{/categoria/editar/{id}(id=${categoria.id})}"
-									class="btn btn-primary">Editar</a>
-								<button type="button" class="btn btn-danger" data-toggle="modal"
-									th:href="@{/categoria/borrar/{id}(id=${categoria.id})}">Borrar
-								</button>
+		
+		<div class="alert alert-warning alert-dismissible" role="alert" th:if="${param.error}">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<span>No se puede borrar una categoría que tiene productos asociados
+						</div>
+		<table border=1>
+							<thead>
+								<tr>
+									<th>Imagen</th>
+									<th>Nombre</th>
+									<th>Operaciones</th>
+								</tr>
+							</thead>
+							<tbody>
+		
+		
+								<tr th:each="categoria : ${categorias}">
+									<td><img th:src="${not (#strings.isEmpty(categoria.imagen))} ? ${categoria.imagen} : 'http://placehold.it/48x48'"
+											class="img-responsive icono-categoria" alt="imagen" /></td>
+									<td th:text="${categoria.nombre}"></td>
+									<td class="operaciones"><a href="#"
+											th:href="@{/categoria/editar/{id}(id=${categoria.id})}"
+											class="btn btn-primary">Editar</a>
+										<button type="button" class="btn btn-danger" data-toggle="modal"
+											data-target="#delete-modal" th:data-id="${categoria.id}">Borrar</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+											<h4 class="modal-title">Borrar categoría</h4>
+										</div>
+										<div class="modal-body">
+											<p>¿Está usted seguro de borrar esta categoría?</p>
+											<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+											<a href="/categoria/borrar/" class="btn btn-danger">Sí</a>
+										</div>
+									</div>
 						
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-
+								</div>
+				
+				</div>
+				<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+					<!-- Include all compiled plugins (below), or include individual files as needed -->
+					<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+				
+					<script src="../static/js/javascript.js" th:src="@{/js/javascript.js}"></script>
+	
 </body>
 
 </html>

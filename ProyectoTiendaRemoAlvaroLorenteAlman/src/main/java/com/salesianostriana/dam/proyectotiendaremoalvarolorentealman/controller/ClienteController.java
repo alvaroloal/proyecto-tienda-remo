@@ -19,7 +19,7 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
     
-    @GetMapping({"/","/list"})
+    @GetMapping("/")
     public String listar(Model model) {
         model.addAttribute("lista", clienteService.listarClientes());
         return "lista-cliente";
@@ -34,7 +34,7 @@ public class ClienteController {
     @PostMapping("/nuevo/submit")
     public String guardarCliente(@ModelAttribute("cliente") Cliente cliente) {
         clienteService.guardarCliente(cliente);
-        return "redirect:/cliente/list";
+        return "redirect:/cliente/";
     }
     
    
@@ -49,14 +49,14 @@ public class ClienteController {
     @PostMapping("/editar/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("cliente") Cliente cliente) {
 		clienteService.edit(cliente);
-		return "redirect:/cliente/list";
+		return "redirect:/cliente/";
 		
 	}
     
     @GetMapping("/eliminar/{id}")
     public String eliminarCliente(@PathVariable Long id) {
         clienteService.eliminarCliente(id);
-        return "redirect:/cliente/list";
+        return "redirect:/cliente/";
     }
 }
 
