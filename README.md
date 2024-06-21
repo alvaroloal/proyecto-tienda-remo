@@ -13,7 +13,11 @@ Se desea implementar una aplicación que gestione los productos de una tienda, a
 ## Funcionamiento
 - Un usuario accede a la aplicación y puede consultar la lista de productos de la tienda.
 
-- Para ver los productos, no es necesario ser cliente dado de alta en el sistema. Sin embargo, para poder realizar una compra hay que darse de alta como cliente.
+- Para ver los productos, no es necesario ser cliente, sin embargo, para poder realizar un pedido hay que acceder como cliente o como administrador.
+
+- Desde la sesion de administrador puedes acceder a la gestion de los clientes, productos y categorías.
+En la lista de productos se pueden añadir a una cesta y calcular el precio total de los productos añadidos, mostrándose en una tabla.
+
 
 
 ## Diagrama analisis
