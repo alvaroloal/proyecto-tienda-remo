@@ -1,59 +1,214 @@
-# Proyecto-tienda-remo
+# 🚣 Sistema de Gestión de Tienda de Remo
 
-## Guía
+Aplicación web para la gestión de productos, clientes y categorías de una tienda especializada en equipamiento de remo. Sistema con autenticación basada en roles (Administrador/Cliente) desarrollado con Spring Boot y Thymeleaf.
 
-1. Clona el proyecto en local
-    ```bash
-    git clone https://github.com/alvaroLorente1/Proyecto-tienda-remo.git
-    ```
+## 🛠️ Stack tecnológico
 
-## Motivación
-Se desea implementar una aplicación que gestione los productos de una tienda, así como la gestion de los usuarios del sistema.
+- **Framework**: Spring Boot 3.3.0
+- **Java**: 17
+- **Persistencia**: Spring Data JPA + Hibernate
+- **Base de datos**: H2 (file-based)
+- **Seguridad**: Spring Security 6
+- **Template Engine**: Thymeleaf con Spring Security extras
+- **Build Tool**: Maven
+- **Utilidades**: Lombok
 
-## Funcionamiento
-- Un usuario accede a la aplicación y puede consultar la lista de productos de la tienda.
+## 📋 Requisitos previos
 
-- Para ver los productos, no es necesario ser cliente, sin embargo, para poder realizar un pedido hay que acceder como cliente o como administrador.
+- ☕ Java JDK 17 o superior
+- 📦 Maven 3.6+ (incluye wrapper `mvnw`)
 
-- Desde la sesion de administrador puedes acceder a la gestion de los clientes, productos y categorías.
-En la lista de productos se pueden añadir a una cesta y calcular el precio total de los productos añadidos, mostrándose en una tabla.
+## ⚙️ Instalación y configuración
 
+### 1️⃣ Clonar el repositorio
+```bash
+git clone https://github.com/alvaroLorente1/Proyecto-tienda-remo.git
+cd Proyecto-tienda-remo/ProyectoTiendaRemoAlvaroLorenteAlman
+```
 
+### 2️⃣ Ejecutar la aplicación
+```bash
+# Linux/Mac
+./mvnw spring-boot:run
 
-## Diagrama analisis
-![diagrama del proyecto](diagrama/diagramaAnalisis.png)
+# Windows
+mvnw.cmd spring-boot:run
+```
 
-## Diagrama diseño
-![diagrama del proyecto](diagrama/diagramaDiseño.png)
+### 3️⃣ Acceder a la aplicación
+- **URL**: http://localhost:9000
+- **Login**: http://localhost:9000/login
+- **H2 Console**: http://localhost:9000/h2-console
 
+## 🔑 Credenciales de acceso
 
-## Arquitectura
-Para implementar la aplicación, se ha decidido dividir las funcionalidades en los siguientes servicios:
+### 👤 Usuario administrador
+- **Username**: `admin`
+- **Password**: `admin`
+- **Privilegios**: Gestión completa de productos, categorías y clientes
 
- **Servicio de gestión de usuario**  
-Es el encargado de gestionar toda la lógica relacionada con los usuarios del sistema, que podrán ser los siguientes:
+### 👥 Usuarios clientes
+| Username | Password | Nombre completo |
+|----------|----------|-----------------|
+| `user`   | `1234`   | John Smith |
+| `user2`  | `1234`   | Jane Doe |
+| `user3`  | `1234`   | Robert Johnson |
 
-- Visitante: usuarios que acceden a la página web para obtener información sobre los servicios ofrecidos. No están autenticados.
-Puede registrarse en el sistema como cliente.
-Puede ver la lista de productos.
-- Cliente: representa al usuario que se autentica en el sistema.
-Habrá que indicar su direccion, número de tarjeta y telefono
-Puede modificar su perfil de usuario pero no puede eliminarlo.
-Puede ver la lista de productos de la tienda.
+## 💾 Configuración de base de datos
 
-- Administrador: es un tipo de usuario que representa al administrador del sistema o gestor de la empresa que utiliza la aplicación.Puede hacer lo mismo que un cliente y además:
-Crear o modificar clientes.
-Eliminar clientes.
-Crear, editar o eliminar productos de la tienda.
-Crear, editar o eliminar categorías
+### H2 Console
+- **JDBC URL**: `jdbc:h2:./db/basededatos;DB_CLOSE_ON_EXIT=FALSE`
+- **Username**: `sa`
+- **Password**: *(vacío)*
+- **Driver**: `org.h2.Driver`
 
+### Persistencia
+- 📁 La base de datos se almacena en `./db/basededatos.mv.db`
+- 🔄 Schema se recrea en cada inicio (`ddl-auto=create-drop`)
+- 📝 Datos iniciales cargados desde `src/main/resources/import.sql`
 
- **Gestión de productos**  
-- Cada producto incluye la informacion detallada de cada uno así como su nombre, descripcion, precio, imagen y su identificador.
-- Los productos estarán separados por categoría.
+## 📂 Estructura del proyecto
 
-**Gestión de categorias** 
-- El administrador puede añadir, eliminar o modificar una categoría.
-- Las categorías que podemos encontrar son : Barcos, componentes, o ropa deportiva.
+```
+ProyectoTiendaRemoAlvaroLorenteAlman/
+├── src/main/java/.../
+│   ├── controller/          # Controladores MVC
+│   │   ├── CategoriaController.java
+│   │   ├── ClienteController.java
+│   │   ├── ProductoController.java
+│   │   └── MainController.java
+│   ├── model/              # Entidades JPA
+│   │   ├── Usuario.java    # Entidad base (UserDetails)
+│   │   ├── Cliente.java    # Hereda de Usuario
+│   │   ├── Producto.java
+│   │   ├── Categoria.java
+│   │   └── Puntuacion.java
+│   ├── repository/         # Repositorios JPA
+│   ├── service/            # Capa de servicio
+│   │   └── base/          # BaseService genérico
+│   └── security/           # Configuración de seguridad
+│       ├── SecurityConfig.java
+│       ├── UserDetailsServiceImpl.java
+│       ├── RoleBasedSuccessHandler.java
+│       └── PasswordEncoderConfig.java
+└── src/main/resources/
+    ├── application.properties
+    ├── import.sql          # Datos iniciales
+    ├── static/             # CSS, JS, imágenes
+    └── templates/          # Vistas Thymeleaf
+```
 
+## 🗂️ Modelo de datos
 
+### Jerarquía de usuarios
+```
+Usuario (JOINED inheritance)
+  ├── id, username, password, admin
+  └── Cliente extends Usuario
+      └── nombre, apellidos, telefono, direccion, numeroTarjeta, email
+```
+
+### Relaciones
+- **Producto** `ManyToOne` **Categoria**
+- **Producto** `OneToMany` **Puntuacion** (ratings)
+
+### Categorías predefinidas
+- 🔧 Componentes (orza, timón, palas)
+- 🚤 Barcos (1x, 2x, 2-, 4-, 4x, 8+)
+- 👕 Ropa deportiva (platanitos, térmicas)
+
+## 🔐 Seguridad y control de acceso
+
+### Configuración de roles
+| Ruta | ADMIN | USER | Público |
+|------|-------|------|---------|
+| `/categoria/**` | ✓ | ✗ | ✗ |
+| `/cliente/**` | ✓ | ✗ | ✗ |
+| `/admin/**` | ✓ | ✗ | ✗ |
+| `/producto/**` | ✓ | ✓ | ✗ |
+| `/login`, `/registro` | ✓ | ✓ | ✓ |
+| `/css/**`, `/js/**`, `/img/**` | ✓ | ✓ | ✓ |
+
+### Flujo de autenticación
+1. 🔑 Login → `UserDetailsServiceImpl` carga usuario desde DB
+2. 🔒 `PasswordEncoder` valida credenciales
+3. 🔀 `RoleBasedSuccessHandler` redirige según rol:
+   - **ADMIN** → `/admin/index`
+   - **USER** → `/web/index`
+
+## 🌐 Endpoints principales
+
+### 📦 Productos
+- `GET /producto` - Lista de productos (AUTH requerido)
+- `GET /producto/nuevo` - Formulario nuevo producto (ADMIN)
+- `POST /producto/nuevo` - Crear producto (ADMIN)
+- `GET /producto/editar/{id}` - Editar producto (ADMIN)
+- `GET /producto/borrar/{id}` - Eliminar producto (ADMIN)
+
+### 🏷️ Categorías
+- `GET /categoria` - Lista categorías (ADMIN)
+- `GET /categoria/nuevo` - Nueva categoría (ADMIN)
+- `POST /categoria/nuevo` - Crear categoría (ADMIN)
+
+### 👤 Clientes
+- `GET /cliente` - Lista clientes (ADMIN)
+- `GET /cliente/nuevo` - Nuevo cliente (ADMIN)
+- `GET /cliente/editar/{id}` - Editar cliente (ADMIN)
+
+## 💻 Comandos de desarrollo
+
+### ⚙️ Compilar
+```bash
+./mvnw clean compile
+```
+
+### 🧪 Ejecutar tests
+```bash
+./mvnw test
+```
+
+### 📦 Generar JAR
+```bash
+./mvnw clean package
+# JAR generado en target/proyectotiendaremoalvarolorentealman-0.0.1-SNAPSHOT.jar
+```
+
+### ▶️ Ejecutar JAR
+```bash
+java -jar target/proyectotiendaremoalvarolorentealman-0.0.1-SNAPSHOT.jar
+```
+
+## 📊 Diagramas de arquitectura
+
+### Diagrama de análisis
+![Diagrama de Análisis](diagrama/diagramaAnalisis.png)
+
+### Diagrama de diseño
+![Diagrama de Diseño](diagrama/diagramaDiseño.png)
+
+## ⚡ Funcionalidades del sistema
+
+### 🌍 Rol visitante (No autenticado)
+- 👁️ Visualización de productos públicos
+- ✍️ Registro como cliente
+
+### 👤 Rol cliente (USER)
+- 📋 Visualización de catálogo completo
+- 🛒 Gestión de cesta de compra
+- ✏️ Modificación de perfil propio
+- ⭐ Puntuación de productos
+
+### 👑 Rol administrador (ADMIN)
+- **🔧 Gestión de productos**: CRUD completo
+- **🏷️ Gestión de categorías**: Crear, modificar, eliminar
+- **👥 Gestión de clientes**: CRUD completo
+- ➕ Todas las funcionalidades de cliente
+
+## 📝 Notas técnicas
+
+- **CSRF**: Deshabilitado en `SecurityConfig` (línea 60)
+- **Frame Options**: Deshabilitado para acceso a H2 Console
+- **Password Encoding**: Configurado con `PasswordEncoderConfig`
+  - Datos de prueba usan `{noop}` prefix (sin encoding)
+- **Lombok**: Genera getters/setters/constructores automáticamente
+- **Puntuación**: Cálculo de media mediante Stream API en `Producto.getPuntuacionMedia()`
